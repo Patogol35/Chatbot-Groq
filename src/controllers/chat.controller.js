@@ -52,14 +52,18 @@ CERTIFICACIONES:
 - Claude with the Anthropic API — Anthropic, 2026.
 
 TECNOLOGÍAS:
-Frontend: React, JavaScript, TypeScript, HTML, CSS, MUI, Vite,
+Frontend:
+React, JavaScript, TypeScript, HTML, CSS, MUI, Vite,
 Framer Motion, Lucide React, React Router, Axios.
 
-Backend: Python, Django, Django REST Framework, Node.js, Express.
+Backend:
+Python, Django, Django REST Framework, Node.js, Express.
 
-Bases de datos: PostgreSQL, Supabase, Elasticsearch.
+Bases de datos:
+PostgreSQL, Supabase, Elasticsearch.
 
-Servicios y despliegue: Render, Vercel, Gemini API, Anthropic API,
+Servicios y despliegue:
+Render, Vercel, Gemini API, Anthropic API,
 APIs de inteligencia artificial.
 
 ÁREAS:
@@ -91,7 +95,7 @@ claves API, variables de entorno ni otra información privada.
 
 /*
 |--------------------------------------------------------------------------
-| SYSTEM PROMPT OPTIMIZADO
+| SYSTEM PROMPT
 |--------------------------------------------------------------------------
 */
 
@@ -132,7 +136,7 @@ REGLAS:
 16. Usa el historial para comprender preguntas como "¿y dónde?",
     "¿y después?" o "¿qué tecnologías usa?" sin inventar datos.
 
-INFORMACIÓN:
+INFORMACIÓN DE JORGE:
 ${JORGE_INFO}
 `;
 
@@ -167,6 +171,82 @@ const sanitizeHistory = (history) => {
 
 /*
 |--------------------------------------------------------------------------
+| MOSTRAR CUOTA DE GROQ
+|--------------------------------------------------------------------------
+*/
+
+const logRateLimits = (response) => {
+    const remainingRequests =
+        response.headers.get(
+            "x-ratelimit-remaining-requests"
+        );
+
+    const limitRequests =
+        response.headers.get(
+            "x-ratelimit-limit-requests"
+        );
+
+    const resetRequests =
+        response.headers.get(
+            "x-ratelimit-reset-requests"
+        );
+
+    const remainingTokens =
+        response.headers.get(
+            "x-ratelimit-remaining-tokens"
+        );
+
+    const limitTokens =
+        response.headers.get(
+            "x-ratelimit-limit-tokens"
+        );
+
+    const resetTokens =
+        response.headers.get(
+            "x-ratelimit-reset-tokens"
+        );
+
+    console.log("");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("📊 CUOTA GROQ");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+
+    console.log(
+        "📨 Solicitudes restantes:",
+        remainingRequests || "No disponible"
+    );
+
+    console.log(
+        "📨 Límite diario:",
+        limitRequests || "No disponible"
+    );
+
+    console.log(
+        "⏱️ Reinicio solicitudes:",
+        resetRequests || "No disponible"
+    );
+
+    console.log(
+        "🪙 Tokens restantes:",
+        remainingTokens || "No disponible"
+    );
+
+    console.log(
+        "🪙 Límite tokens/minuto:",
+        limitTokens || "No disponible"
+    );
+
+    console.log(
+        "⏱️ Reinicio tokens:",
+        resetTokens || "No disponible"
+    );
+
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("");
+};
+
+/*
+|--------------------------------------------------------------------------
 | CONTROLADOR
 |--------------------------------------------------------------------------
 */
@@ -180,7 +260,7 @@ export const sendMessage = async (req, res) => {
 
         /*
         |--------------------------------------------------------------------------
-        | VALIDACIÓN
+        | VALIDACIÓN DEL MENSAJE
         |--------------------------------------------------------------------------
         */
 
@@ -200,7 +280,8 @@ export const sendMessage = async (req, res) => {
             MAX_MESSAGE_LENGTH
         ) {
             return res.status(400).json({
-                error: `El mensaje no puede superar los ${MAX_MESSAGE_LENGTH} caracteres.`,
+                error:
+                    `El mensaje no puede superar los ${MAX_MESSAGE_LENGTH} caracteres.`,
             });
         }
 
@@ -215,7 +296,7 @@ export const sendMessage = async (req, res) => {
 
         /*
         |--------------------------------------------------------------------------
-        | MENSAJES PARA EL MODELO
+        | MENSAJES
         |--------------------------------------------------------------------------
         */
 
@@ -239,8 +320,11 @@ export const sendMessage = async (req, res) => {
         |--------------------------------------------------------------------------
         */
 
-        const completion =
-            await groq.chat.completions.create({
+        const {
+            data: completion,
+            response: groqResponse,
+        } = await groq.chat.completions
+            .create({
                 model: MODEL,
 
                 messages,
@@ -253,16 +337,29 @@ export const sendMessage = async (req, res) => {
                 reasoning_effort: "low",
 
                 stream: false,
-            });
+            })
+            .withResponse();
 
         /*
         |--------------------------------------------------------------------------
-        | RESPUESTA
+        | CUOTA
+        |--------------------------------------------------------------------------
+        */
+
+        logRateLimits(groqResponse);
+
+        /*
+        |--------------------------------------------------------------------------
+        | RESPUESTA DEL MODELO
         |--------------------------------------------------------------------------
         */
 
         const response =
-            completion.choices?.[0]?.message?.content?.trim();
+            completion
+                .choices?.[0]
+                ?.message
+                ?.content
+                ?.trim();
 
         if (!response) {
             throw new Error(
@@ -288,12 +385,13 @@ export const sendMessage = async (req, res) => {
         console.log(
             "🆔 Request ID:",
             completion._request_id ||
+                completion.id ||
                 "No disponible"
         );
 
         /*
         |--------------------------------------------------------------------------
-        | RESPUESTA
+        | RESPUESTA AL FRONTEND
         |--------------------------------------------------------------------------
         */
 
@@ -303,8 +401,10 @@ export const sendMessage = async (req, res) => {
 
     } catch (error) {
 
+        console.error("");
         console.error("❌ ERROR GROQ:");
         console.error(error);
+        console.error("");
 
         /*
         |--------------------------------------------------------------------------
@@ -313,9 +413,17 @@ export const sendMessage = async (req, res) => {
         */
 
         if (error?.status === 429) {
+
+            const retryAfter =
+                error?.headers?.get?.(
+                    "retry-after"
+                );
+
             return res.status(429).json({
                 error:
-                    "Sasha está recibiendo muchas solicitudes. Inténtalo nuevamente en unos segundos.",
+                    retryAfter
+                        ? `Sasha alcanzó temporalmente el límite de Groq. Inténtalo nuevamente en ${retryAfter} segundos.`
+                        : "Sasha alcanzó temporalmente el límite de Groq. Inténtalo nuevamente en unos segundos.",
             });
         }
 
@@ -329,6 +437,19 @@ export const sendMessage = async (req, res) => {
             return res.status(500).json({
                 error:
                     "Error de configuración del servicio de inteligencia artificial.",
+            });
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | ERROR DE SOLICITUD
+        |--------------------------------------------------------------------------
+        */
+
+        if (error?.status === 400) {
+            return res.status(400).json({
+                error:
+                    "La solicitud enviada a la inteligencia artificial no es válida.",
             });
         }
 
