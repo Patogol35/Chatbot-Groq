@@ -52,15 +52,13 @@ CERTIFICACIONES:
 - Claude with the Anthropic API — Anthropic, 2026.
 
 TECNOLOGÍAS:
-Frontend: React, JavaScript, TypeScript, HTML, CSS, MUI, Vite,
-Framer Motion, Lucide React, React Router, Axios.
+Frontend: React, JavaScript, TypeScript.
 
-Backend: Python, Django, Django REST Framework, Node.js, Express.
+Backend: Python, Django, Java
 
-Bases de datos: PostgreSQL, Supabase, Elasticsearch.
+Bases de datos: PostgreSQL, MySQL, Elasticsearch.
 
-Servicios y despliegue: Render, Vercel, Gemini API, Anthropic API,
-APIs de inteligencia artificial.
+Servicios y despliegue: Render, Vercel, AWS.
 
 ÁREAS:
 Frontend, backend, Full Stack, aplicaciones web, APIs REST,
@@ -76,10 +74,8 @@ PROYECTOS:
 - Aplicación del clima.
 - Movie Explorer.
 - Calculadora Pro.
-- Generador y lector de códigos QR.
+- Juego de Ajedrez
 - E-commerce Full Stack con React y Django.
-- Proyectos con Elasticsearch.
-- Aplicaciones con APIs de inteligencia artificial.
 
 CONTACTO:
 Para contactar con Jorge, utilizar la sección "Contacto" del portfolio.
