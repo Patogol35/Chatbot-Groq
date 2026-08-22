@@ -1,7 +1,7 @@
-import { GoogleGenAI } from "@google/genai";
+import Groq from "groq-sdk";
 
-const ai = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY
+const groq = new Groq({
+    apiKey: process.env.GROQ_API_KEY
 });
 
 /*
@@ -92,7 +92,7 @@ TECNOLOGÍAS Y HERRAMIENTAS:
 - Render
 - Vercel
 - APIs de inteligencia artificial
-- Gemini API
+- Groq API
 - Anthropic API
 
 ÁREAS DE CONOCIMIENTO:
@@ -134,8 +134,9 @@ PORTFOLIO:
 El chatbot forma parte del portafolio personal de Jorge y funciona
 como un asistente virtual basado en inteligencia artificial.
 
-El asistente utiliza la API de Google Gemini para procesar las
-preguntas de los visitantes y generar respuestas dinámicas.
+El asistente utiliza la API de Groq para procesar las preguntas
+de los visitantes y generar respuestas dinámicas mediante
+modelos de inteligencia artificial disponibles en Groq.
 
 El portafolio demuestra el interés de Jorge por desarrollar
 soluciones digitales modernas y por integrar inteligencia artificial
@@ -262,7 +263,7 @@ REGLAS SOBRE LA INFORMACIÓN DE JORGE:
     portafolio de Jorge.
 
 21. Si preguntan si eres una inteligencia artificial, responde que sí.
-    Puedes explicar que utilizas la API de Google Gemini para generar
+    Puedes explicar que utilizas la API de Groq para generar
     respuestas dinámicas.
 
 22. Si preguntan cómo fuiste desarrollada, explica de manera sencilla
@@ -313,33 +314,39 @@ export const sendMessage = async (req, res) => {
     try {
         const { message } = req.body;
 
-        // Validar mensaje
         if (!message?.trim()) {
             return res.status(400).json({
                 error: "El mensaje es obligatorio"
             });
         }
 
-        const response = await ai.models.generateContent({
-            model: "gemini-3.6-flash",
+        const completion = await groq.chat.completions.create({
+            model: "openai/gpt-oss-20b",
 
-            contents: [
+            messages: [
+                {
+                    role: "system",
+                    content: SYSTEM_PROMPT
+                },
                 {
                     role: "user",
-                    parts: [
-                        {
-                            text: `${SYSTEM_PROMPT}
-
-PREGUNTA DEL USUARIO:
-${message}`
-                        }
-                    ]
+                    content: message.trim()
                 }
-            ]
+            ],
+
+            temperature: 0.7,
+            max_completion_tokens: 2048
         });
 
+        const response =
+            completion.choices[0]?.message?.content;
+
+        if (!response) {
+            throw new Error("Groq no devolvió una respuesta.");
+        }
+
         res.json({
-            response: response.text
+            response
         });
 
     } catch (error) {
@@ -347,7 +354,10 @@ ${message}`
         console.error(error);
 
         res.status(500).json({
-            error: error.message
+            error:
+                error?.error?.message ||
+                error?.message ||
+                "Error al comunicarse con Groq."
         });
     }
 };
