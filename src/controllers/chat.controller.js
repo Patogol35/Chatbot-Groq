@@ -176,73 +176,14 @@ const sanitizeHistory = (history) => {
 */
 
 const logRateLimits = (response) => {
-    const remainingRequests =
-        response.headers.get(
-            "x-ratelimit-remaining-requests"
-        );
+    console.log("🔥 RESPONSE GROQ:");
+    console.log(response);
 
-    const limitRequests =
-        response.headers.get(
-            "x-ratelimit-limit-requests"
-        );
+    console.log("🔥 HEADERS GROQ:");
 
-    const resetRequests =
-        response.headers.get(
-            "x-ratelimit-reset-requests"
-        );
-
-    const remainingTokens =
-        response.headers.get(
-            "x-ratelimit-remaining-tokens"
-        );
-
-    const limitTokens =
-        response.headers.get(
-            "x-ratelimit-limit-tokens"
-        );
-
-    const resetTokens =
-        response.headers.get(
-            "x-ratelimit-reset-tokens"
-        );
-
-    console.log("");
-    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-    console.log("📊 CUOTA GROQ");
-    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-
-    console.log(
-        "📨 Solicitudes restantes:",
-        remainingRequests || "No disponible"
-    );
-
-    console.log(
-        "📨 Límite diario:",
-        limitRequests || "No disponible"
-    );
-
-    console.log(
-        "⏱️ Reinicio solicitudes:",
-        resetRequests || "No disponible"
-    );
-
-    console.log(
-        "🪙 Tokens restantes:",
-        remainingTokens || "No disponible"
-    );
-
-    console.log(
-        "🪙 Límite tokens/minuto:",
-        limitTokens || "No disponible"
-    );
-
-    console.log(
-        "⏱️ Reinicio tokens:",
-        resetTokens || "No disponible"
-    );
-
-    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-    console.log("");
+    for (const [key, value] of response.headers.entries()) {
+        console.log(`${key}: ${value}`);
+    }
 };
 
 /*
