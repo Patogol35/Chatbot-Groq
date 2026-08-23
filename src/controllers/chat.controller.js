@@ -33,6 +33,7 @@ INTERESES:
 - Lectura, especialmente novelas de Dan Brown.
 - Bicicleta estática.
 - Caminar.
+- Escuchar Música.
 - Tiene una perra llamada Chiquita.
 
 FORMACIÓN:
@@ -52,7 +53,7 @@ CERTIFICACIONES:
 - Claude with the Anthropic API — Anthropic, 2026.
 
 TECNOLOGÍAS:
-Frontend: React, JavaScript, TypeScript.
+Frontend: React, JavaScript.
 
 Backend: Python, Django, Java
 
@@ -61,11 +62,9 @@ Bases de datos: PostgreSQL, MySQL, Elasticsearch.
 Servicios y despliegue: Render, Vercel, AWS.
 
 ÁREAS:
-Frontend, backend, Full Stack, aplicaciones web, APIs REST,
-bases de datos, IA, integración de APIs, autenticación,
-seguridad, pruebas de APIs, virtualización, seguridad de red,
-soporte remoto, documentación técnica, despliegue,
-interfaces web y e-commerce.
+Frontend, Backend, Full Stack, aplicaciones web, APIs REST,
+bases de datos, integración de APIs, seguridad, virtualización, seguridad de red,
+soporte remoto, documentación técnica.
 
 PROYECTOS:
 - Portfolio personal con React y MUI.
