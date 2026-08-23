@@ -35,6 +35,7 @@ INTERESES:
 - Caminar.
 - Escuchar Música.
 - Tiene una perra llamada Chiquita.
+- Equipo de fútbol favorito, club Macará de Ambato 
 
 FORMACIÓN:
 - Ingeniería en Sistemas — Universidad Indoamérica, Ecuador.
