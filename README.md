@@ -1,16 +1,10 @@
-# Chatbot con Inteligencia Artificial
+🤖 Chatbot con Inteligencia Artificial
 
 Sasha es un chatbot de inteligencia artificial desarrollado para el portfolio personal de Jorge Patricio Santamaría Cherrez.
 
 Está diseñado para responder preguntas sobre Jorge, sus estudios, certificaciones, tecnologías y proyectos, además de proporcionar respuestas sobre programación y tecnología en general.
 
 El backend utiliza la API de Groq para generar las respuestas mediante un modelo de lenguaje.
-
----
-
-🤖 Chatbot desplegado:
-
-https://groqbot-8jru.onrender.com
 
 ---
 
@@ -31,8 +25,6 @@ https://groqbot-8jru.onrender.com
 - CORS
 
 - dotenv
-
-- Nodemon
 
 ---
 
@@ -58,8 +50,6 @@ https://groqbot-8jru.onrender.com
 
 - Protección de información privada
 
-- Protección de las instrucciones internas del asistente
-
 - Control de solicitudes mediante respuestas ante límites de la API
 
 - Respuestas optimizadas mediante un límite de tokens
@@ -72,7 +62,7 @@ https://groqbot-8jru.onrender.com
 
 El chatbot utiliza Groq como proveedor de inferencia y el modelo:
 
-openai/gpt-oss-20b
+- openai/gpt-oss-20b
 
 Sasha cuenta con un prompt de sistema diseñado para:
 
@@ -111,8 +101,6 @@ El backend incorpora diferentes medidas para controlar las solicitudes:
 - Protección de las instrucciones internas del chatbot
 
 - No exposición de información privada
-
-- Manejo específico de errores de autenticación
 
 - Manejo de errores por límite de solicitudes
 
