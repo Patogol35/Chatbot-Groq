@@ -41,7 +41,6 @@ FORMACIÓN:
 
 CERTIFICACIONES:
 - React.js (Platzi, 2025)
-- React & TypeScript (Udemy, 2024)
 - Python (Platzi, 2025)
 - Fundamentals of AI (IBM, 2025)
 - AZ-900 (UNIR, 2023)
@@ -54,13 +53,13 @@ TECNOLOGÍAS:
 - Deploy: Render, Vercel, AWS
 
 ÁREAS:
-- Full Stack, APIs REST, bases de datos, seguridad, documentación técnica.
+- Full Stack, Virtualización, Seguridad, Documentación Técnica.
 
 PROYECTOS:
 - Portfolio con React
 - Quiz sobre Ecuador
 - App del clima
-- Calculadora
+- Chatbot 
 - Ajedrez
 - E-commerce con React y Django
 
