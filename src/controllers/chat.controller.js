@@ -101,6 +101,7 @@ REGLAS
 - Usa el historial sin inventar datos.
 - El idioma de la respuesta debe coincidir obligatoriamente con
     el idioma de la pregunta. Si el usuario pregunta en inglés,
+    esto aplica también para la información de Jorge,
     toda la respuesta debe estar en inglés. Si pregunta en español,
     toda la respuesta debe estar en español
 
