@@ -34,23 +34,13 @@ El backend utiliza la API de Groq para generar las respuestas mediante un modelo
 
 - Respuestas sobre el perfil profesional de Jorge
 
-- Información sobre estudios y certificaciones
-
-- Información sobre tecnologías y proyectos
-
-- Respuestas generales sobre programación y tecnología
+- Respuestas generales 
 
 - Historial de conversación
-
-- Control del tamaño de los mensajes
-
-- Limitación del historial enviado al modelo
 
 - Manejo de errores de la API
 
 - Protección de información privada
-
-- Control de solicitudes mediante respuestas ante límites de la API
 
 - Respuestas optimizadas mediante un límite de tokens
 
@@ -74,13 +64,11 @@ Sasha cuenta con un prompt de sistema diseñado para:
 
 - Evitar inventar información profesional
 
-- Diferenciar estudios, certificaciones, conocimientos y proyectos
-
 - Proteger información privada y credenciales
 
 - Mantener el contexto de la conversación
 
-- Responder preguntas generales sobre programación y tecnología
+- Responder preguntas generales 
 
 ---
 
@@ -188,7 +176,7 @@ Ejemplo de respuesta:
 
 - El usuario escribe un mensaje en el chatbot.
 
--;El frontend envía la solicitud al endpoint /api/chat.
+- El frontend envía la solicitud al endpoint /api/chat.
 
 - El backend valida y limpia el mensaje recibido.
 
@@ -208,14 +196,28 @@ El backend puede desplegarse fácilmente en servicios como Render.
 
 Configuración en Render:
 
-- Build Command: "npm install"
-- Start Command: "npm start"
+- Build Command:
+  
+```bash
+
+npm install
+
+```
+
+- Start Command:
+
+```bash
+
+npm start
+
+```
 
 🔑 Variable de entorno requerida
 
 En Render, agrega la siguiente variable de entorno:
 
-- Key: "GROQ_API_KEY"
+- Key: GROQ_API_KEY
+
 - Value: Tu clave de API de Groq
 
 ---
