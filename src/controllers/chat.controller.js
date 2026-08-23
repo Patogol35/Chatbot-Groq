@@ -22,10 +22,6 @@ const MAX_RETRIES = 2;
 |--------------------------------------------------------------------------
 | INFORMACIÓN DE JORGE
 |--------------------------------------------------------------------------
-|
-| Mantiene la información importante pero con menos texto
-| para reducir tokens enviados en cada petición.
-|--------------------------------------------------------------------------
 */
 
 const JORGE_INFO = `
@@ -86,7 +82,7 @@ claves API, variables de entorno ni información privada.
 
 /*
 |--------------------------------------------------------------------------
-| SYSTEM PROMPT OPTIMIZADO
+| SYSTEM PROMPT
 |--------------------------------------------------------------------------
 */
 
@@ -144,6 +140,7 @@ ${JORGE_INFO}
 */
 
 const sanitizeHistory = (history) => {
+
     if (!Array.isArray(history)) {
         return [];
     }
@@ -180,6 +177,31 @@ const sleep = (ms) =>
 
 /*
 |--------------------------------------------------------------------------
+| FORMATEAR RESET
+|--------------------------------------------------------------------------
+*/
+
+const formatResetTime = (value) => {
+
+    if (!value) {
+        return "No disponible";
+    }
+
+    const text = String(value).trim();
+
+    /*
+    |--------------------------------------------------------------------------
+    | Si Groq devuelve directamente algo como:
+    | 7.66s / 2m59.56s
+    |--------------------------------------------------------------------------
+    */
+
+    return text;
+};
+
+
+/*
+|--------------------------------------------------------------------------
 | CONTROLADOR
 |--------------------------------------------------------------------------
 */
@@ -204,10 +226,13 @@ export const sendMessage = async (req, res) => {
             typeof message !== "string" ||
             !message.trim()
         ) {
+
             return res.status(400).json({
-                error: "El mensaje es obligatorio.",
+                error:
+                    "El mensaje es obligatorio.",
             });
         }
+
 
         const userMessage =
             message.trim();
@@ -217,6 +242,7 @@ export const sendMessage = async (req, res) => {
             userMessage.length >
             MAX_MESSAGE_LENGTH
         ) {
+
             return res.status(400).json({
                 error:
                     `El mensaje no puede superar los ${MAX_MESSAGE_LENGTH} caracteres.`,
@@ -241,6 +267,7 @@ export const sendMessage = async (req, res) => {
         */
 
         const messages = [
+
             {
                 role: "system",
                 content: SYSTEM_PROMPT,
@@ -252,7 +279,21 @@ export const sendMessage = async (req, res) => {
                 role: "user",
                 content: userMessage,
             },
+
         ];
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | VARIABLES DE RESPUESTA
+        |--------------------------------------------------------------------------
+        */
+
+        let completion = null;
+
+        let responseHeaders = null;
+
+        let lastError = null;
 
 
         /*
@@ -260,10 +301,6 @@ export const sendMessage = async (req, res) => {
         | SOLICITUD A GROQ
         |--------------------------------------------------------------------------
         */
-
-        let completion = null;
-        let lastError = null;
-
 
         for (
             let attempt = 0;
@@ -273,24 +310,45 @@ export const sendMessage = async (req, res) => {
 
             try {
 
+                /*
+                |--------------------------------------------------------------------------
+                | withResponse()
+                |
+                | Permite obtener los headers HTTP enviados por Groq.
+                |--------------------------------------------------------------------------
+                */
+
+                const result =
+                    await groq.chat.completions
+                        .create({
+
+                            model: MODEL,
+
+                            messages,
+
+                            temperature: 0.5,
+
+                            max_completion_tokens:
+                                MAX_COMPLETION_TOKENS,
+
+                            reasoning_effort:
+                                "low",
+
+                            stream: false,
+
+                        })
+                        .withResponse();
+
+
                 completion =
-                    await groq.chat.completions.create({
+                    result.data;
 
-                        model: MODEL,
+                responseHeaders =
+                    result.response.headers;
 
-                        messages,
-
-                        temperature: 0.5,
-
-                        max_completion_tokens:
-                            MAX_COMPLETION_TOKENS,
-
-                        reasoning_effort: "low",
-
-                        stream: false,
-                    });
 
                 break;
+
 
             } catch (error) {
 
@@ -299,28 +357,47 @@ export const sendMessage = async (req, res) => {
 
                 /*
                 |--------------------------------------------------------------------------
-                | RATE LIMIT 429
+                | RATE LIMIT
                 |--------------------------------------------------------------------------
                 */
 
-                if (error?.status === 429) {
+                if (
+                    error?.status === 429
+                ) {
 
                     const retryAfter =
                         Number(
-                            error?.headers?.["retry-after"] ||
-                            error?.headers?.get?.("retry-after")
+                            error?.headers?.[
+                                "retry-after"
+                            ] ||
+                            error?.headers?.get?.(
+                                "retry-after"
+                            )
                         );
 
 
                     const waitTime =
-                        Number.isFinite(retryAfter) &&
+                        Number.isFinite(
+                            retryAfter
+                        ) &&
                         retryAfter > 0
-                            ? retryAfter * 1000
-                            : 2000 * (attempt + 1);
 
+                            ? retryAfter * 1000
+
+                            : 2000 *
+                              (attempt + 1);
+
+
+                    console.warn("");
 
                     console.warn(
-                        `⚠️ Groq 429. Esperando ${waitTime} ms...`
+                        "⚠️ GROQ RATE LIMIT 429"
+                    );
+
+                    console.warn(
+                        "⏳ Reintento en:",
+                        waitTime,
+                        "ms"
                     );
 
 
@@ -340,7 +417,7 @@ export const sendMessage = async (req, res) => {
 
                 /*
                 |--------------------------------------------------------------------------
-                | ERRORES DEL SERVIDOR
+                | ERRORES 5xx
                 |--------------------------------------------------------------------------
                 */
 
@@ -374,7 +451,7 @@ export const sendMessage = async (req, res) => {
 
         /*
         |--------------------------------------------------------------------------
-        | SIN RESPUESTA
+        | SI NO HAY RESPUESTA
         |--------------------------------------------------------------------------
         */
 
@@ -391,7 +468,7 @@ export const sendMessage = async (req, res) => {
 
         /*
         |--------------------------------------------------------------------------
-        | OBTENER RESPUESTA
+        | RESPUESTA DEL MODELO
         |--------------------------------------------------------------------------
         */
 
@@ -421,14 +498,20 @@ export const sendMessage = async (req, res) => {
             response
                 .replace(/\*\*/g, "")
                 .replace(/\*/g, "")
-                .replace(/<br\s*\/?>/gi, "\n")
-                .replace(/<[^>]*>/g, "")
+                .replace(
+                    /<br\s*\/?>/gi,
+                    "\n"
+                )
+                .replace(
+                    /<[^>]*>/g,
+                    ""
+                )
                 .trim();
 
 
         /*
         |--------------------------------------------------------------------------
-        | USO DE TOKENS
+        | TOKENS USADOS
         |--------------------------------------------------------------------------
         */
 
@@ -450,6 +533,48 @@ export const sendMessage = async (req, res) => {
 
         /*
         |--------------------------------------------------------------------------
+        | HEADERS DE CUOTA GROQ
+        |--------------------------------------------------------------------------
+        */
+
+        const remainingTokens =
+            responseHeaders?.get(
+                "x-ratelimit-remaining-tokens"
+            );
+
+
+        const remainingRequests =
+            responseHeaders?.get(
+                "x-ratelimit-remaining-requests"
+            );
+
+
+        const limitTokens =
+            responseHeaders?.get(
+                "x-ratelimit-limit-tokens"
+            );
+
+
+        const limitRequests =
+            responseHeaders?.get(
+                "x-ratelimit-limit-requests"
+            );
+
+
+        const resetTokens =
+            responseHeaders?.get(
+                "x-ratelimit-reset-tokens"
+            );
+
+
+        const resetRequests =
+            responseHeaders?.get(
+                "x-ratelimit-reset-requests"
+            );
+
+
+        /*
+        |--------------------------------------------------------------------------
         | REQUEST ID
         |--------------------------------------------------------------------------
         */
@@ -461,7 +586,7 @@ export const sendMessage = async (req, res) => {
 
         /*
         |--------------------------------------------------------------------------
-        | LOGS
+        | LOG PRINCIPAL
         |--------------------------------------------------------------------------
         */
 
@@ -472,7 +597,11 @@ export const sendMessage = async (req, res) => {
         );
 
         console.log(
-            "🤖 Sasha respondió correctamente"
+            "🤖 SASHA RESPONDIÓ"
+        );
+
+        console.log(
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         );
 
         console.log(
@@ -485,6 +614,8 @@ export const sendMessage = async (req, res) => {
             requestId
         );
 
+        console.log("");
+
         console.log(
             "📥 Tokens entrada:",
             promptTokens
@@ -496,19 +627,73 @@ export const sendMessage = async (req, res) => {
         );
 
         console.log(
-            "📊 Tokens totales:",
+            "📊 Tokens usados:",
             totalTokens
         );
 
         console.log(
-            "📝 Historial utilizado:",
+            "📝 Historial:",
             cleanHistory.length,
             "mensajes"
+        );
+
+        console.log("");
+
+        console.log(
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        );
+
+        console.log(
+            "📊 CUOTA GROQ"
         );
 
         console.log(
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         );
+
+        console.log(
+            "🪙 Tokens restantes:",
+            remainingTokens ||
+                "No disponible"
+        );
+
+        console.log(
+            "📨 Requests restantes:",
+            remainingRequests ||
+                "No disponible"
+        );
+
+        console.log(
+            "🔢 Límite tokens:",
+            limitTokens ||
+                "No disponible"
+        );
+
+        console.log(
+            "🔢 Límite requests:",
+            limitRequests ||
+                "No disponible"
+        );
+
+        console.log(
+            "⏱️ Reset tokens:",
+            formatResetTime(
+                resetTokens
+            )
+        );
+
+        console.log(
+            "⏱️ Reset requests:",
+            formatResetTime(
+                resetRequests
+            )
+        );
+
+        console.log(
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        );
+
+        console.log("");
 
 
         /*
@@ -529,7 +714,47 @@ export const sendMessage = async (req, res) => {
                 completionTokens,
 
                 totalTokens,
+
             },
+
+            quota: {
+
+                remainingTokens:
+                    remainingTokens
+                        ? Number(
+                            remainingTokens
+                        )
+                        : null,
+
+                remainingRequests:
+                    remainingRequests
+                        ? Number(
+                            remainingRequests
+                        )
+                        : null,
+
+                limitTokens:
+                    limitTokens
+                        ? Number(
+                            limitTokens
+                        )
+                        : null,
+
+                limitRequests:
+                    limitRequests
+                        ? Number(
+                            limitRequests
+                        )
+                        : null,
+
+                resetTokens:
+                    resetTokens || null,
+
+                resetRequests:
+                    resetRequests || null,
+
+            },
+
         });
 
 
@@ -564,10 +789,24 @@ export const sendMessage = async (req, res) => {
             error?.status === 429
         ) {
 
+            const retryAfter =
+                error?.headers?.[
+                    "retry-after"
+                ] ||
+                error?.headers?.get?.(
+                    "retry-after"
+                );
+
+
             return res.status(429).json({
 
                 error:
-                    "Sasha ha alcanzado temporalmente el límite de Groq. Inténtalo nuevamente en unos segundos.",
+                    retryAfter
+
+                        ? `Sasha ha alcanzado temporalmente el límite de Groq. Inténtalo nuevamente en ${retryAfter} segundos.`
+
+                        : "Sasha ha alcanzado temporalmente el límite de Groq. Inténtalo nuevamente en unos segundos.",
+
             });
         }
 
@@ -587,6 +826,7 @@ export const sendMessage = async (req, res) => {
 
                 error:
                     "Error de configuración del servicio de inteligencia artificial.",
+
             });
         }
 
@@ -601,6 +841,7 @@ export const sendMessage = async (req, res) => {
 
             error:
                 "No fue posible obtener una respuesta de Sasha. Inténtalo nuevamente.",
+
         });
     }
 };
