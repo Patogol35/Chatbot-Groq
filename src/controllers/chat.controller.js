@@ -260,13 +260,21 @@ export const sendMessage = async (req, res) => {
         */
 
         const response =
-            completion.choices?.[0]?.message?.content?.trim();
+    completion.choices?.[0]?.message?.content?.trim();
 
-        if (!response) {
-            throw new Error(
-                "Groq no devolvió contenido."
-            );
-        }
+if (!response) {
+    throw new Error(
+        "Groq no devolvió contenido."
+    );
+}
+
+const cleanResponse = response
+    .replace(/\*\*/g, "")
+    .replace(/\*/g, "");
+
+return res.json({
+    response: cleanResponse,
+});
 
         /*
         |--------------------------------------------------------------------------
