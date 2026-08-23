@@ -31,10 +31,7 @@ Jorge Patricio Santamaría Cherrez:
 
 INTERESES:
 - Lectura, especialmente novelas de Dan Brown.
-- Bicicleta estática.
-- Caminar.
 - Escuchar Música.
-- Equipo de fútbol favorito, club Macará de Ambato 
 
 FORMACIÓN:
 - Ingeniería en Sistemas — Universidad Indoamérica, Ecuador.
