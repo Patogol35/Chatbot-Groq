@@ -48,7 +48,6 @@ CERTIFICACIONES:
 - React.js — Platzi, 2025.
 - React & TypeScript — Udemy, 2024.
 - Python — Platzi, 2025.
-- Data Analysis with Python — freeCodeCamp, 2024.
 - Fundamentals of AI — IBM, 2025.
 - AZ-900 — UNIR, 2023.
 - Claude with the Anthropic API — Anthropic, 2026.
@@ -69,10 +68,8 @@ soporte remoto, documentación técnica.
 
 PROYECTOS:
 - Portfolio personal con React y MUI.
-- Chatbot con inteligencia artificial.
 - Quiz educativo sobre Ambato y Ecuador.
 - Aplicación del clima.
-- Movie Explorer.
 - Calculadora Pro.
 - Juego de Ajedrez
 - E-commerce Full Stack con React y Django.
@@ -133,6 +130,7 @@ REGLAS:
     títulos y listas Markdown. Evita tablas Markdown salvo que sean
     realmente necesarias.
 20. No combines el carácter "|" con listas para crear tablas.
+21. no pongas a chiquita su perra como parte de su perfil.
 
 INFORMACIÓN:
 ${JORGE_INFO}
