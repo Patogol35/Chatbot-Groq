@@ -27,9 +27,9 @@ const COST_PER_1K_TOKENS = 0.0002;
 
 const JORGE_INFO = `
 Jorge Patricio Santamaría Cherrez:
-- 38 años.
-- Ingeniero de Software y Desarrollador Full Stack.
-- Interesado en inteligencia artificial y APIs de lenguaje.
+
+- Ingeniero de Software 
+- Interesado en tecnología.
 
 INTERESES:
 - Lectura (Dan Brown).
