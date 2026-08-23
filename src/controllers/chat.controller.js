@@ -51,8 +51,8 @@ CERTIFICACIONES:
 
 TECNOLOGÍAS:
 - Frontend: React, JavaScript
-- Backend: Python, Django, Java
-- Bases de datos: PostgreSQL, MySQL, Elasticsearch
+- Backend: Django, Java
+- Bases de datos: PostgreSQL, MySQL
 - Deploy: Render, Vercel, AWS
 
 ÁREAS:
