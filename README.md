@@ -161,6 +161,8 @@ El backend estará disponible en:
 
 http://localhost:3001
 
+---
+
 🔌 API
 
 Endpoint principal:
@@ -177,7 +179,10 @@ Ejemplo de respuesta:
 
 {
   "response": "Jorge trabaja con tecnologías como React, JavaScript, Python, Django, Java, PostgreSQL y MySQL."
+  
 }
+
+---
 
 🖥 Funcionamiento
 
@@ -195,15 +200,25 @@ Ejemplo de respuesta:
 
 - El backend devuelve la respuesta al frontend.
 
+---
+
 🌐 Despliegue
 
-El backend puede desplegarse en servicios como Render utilizando las variables de entorno necesarias.
+El backend puede desplegarse fácilmente en servicios como Render.
 
-Variable requerida:
+Configuración en Render:
 
-GROQ_API_KEY
+- Build Command: "npm install"
+- Start Command: "npm start"
 
-El servidor utiliza automáticamente el puerto proporcionado por la plataforma mediante la variable:
+🔑 Variable de entorno requerida
+
+En Render, agrega la siguiente variable de entorno:
+
+- Key: "GROQ_API_KEY"
+- Value: Tu clave de API de Groq
+
+---
 
 👨‍💻 Autor
 Jorge Patricio Santamaría Cherrez
