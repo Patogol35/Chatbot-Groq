@@ -16,6 +16,9 @@ const MAX_MESSAGE_LENGTH = 1500;
 const MAX_HISTORY_MESSAGES = 12;
 const MAX_COMPLETION_TOKENS = 400;
 
+// 💰 Ajusta según pricing real
+const COST_PER_1K_TOKENS = 0.0002;
+
 /*
 |--------------------------------------------------------------------------
 | INFORMACIÓN DE JORGE
@@ -72,7 +75,7 @@ No revelar datos sensibles, credenciales o claves.
 
 /*
 |--------------------------------------------------------------------------
-| SYSTEM PROMPT OPTIMIZADO
+| SYSTEM PROMPT
 |--------------------------------------------------------------------------
 */
 
@@ -119,16 +122,13 @@ ${JORGE_INFO}
 */
 
 const sanitizeHistory = (history) => {
-    if (!Array.isArray(history)) {
-        return [];
-    }
+    if (!Array.isArray(history)) return [];
 
     return history
         .filter(
             (item) =>
                 item &&
-                (item.role === "user" ||
-                    item.role === "assistant") &&
+                (item.role === "user" || item.role === "assistant") &&
                 typeof item.content === "string"
         )
         .map((item) => ({
@@ -149,12 +149,6 @@ export const sendMessage = async (req, res) => {
     try {
         const { message, history = [] } = req.body;
 
-        /*
-        |--------------------------------------------------------------------------
-        | VALIDACIÓN
-        |--------------------------------------------------------------------------
-        */
-
         if (typeof message !== "string" || !message.trim()) {
             return res.status(400).json({
                 error: "El mensaje es obligatorio.",
@@ -169,30 +163,12 @@ export const sendMessage = async (req, res) => {
             });
         }
 
-        /*
-        |--------------------------------------------------------------------------
-        | HISTORIAL
-        |--------------------------------------------------------------------------
-        */
-
         const cleanHistory = sanitizeHistory(history);
 
-        /*
-        |--------------------------------------------------------------------------
-        | MENSAJES PARA EL MODELO
-        |--------------------------------------------------------------------------
-        */
-
         const messages = [
-            {
-                role: "system",
-                content: SYSTEM_PROMPT,
-            },
+            { role: "system", content: SYSTEM_PROMPT },
             ...cleanHistory,
-            {
-                role: "user",
-                content: userMessage,
-            },
+            { role: "user", content: userMessage },
         ];
 
         /*
@@ -209,6 +185,21 @@ export const sendMessage = async (req, res) => {
             reasoning_effort: "low",
             stream: false,
         });
+
+        /*
+        |--------------------------------------------------------------------------
+        | TOKENS USAGE
+        |--------------------------------------------------------------------------
+        */
+
+        const usage = completion.usage || {};
+
+        const promptTokens = usage.prompt_tokens || 0;
+        const completionTokens = usage.completion_tokens || 0;
+        const totalTokens = usage.total_tokens || 0;
+
+        const estimatedCost =
+            (totalTokens / 1000) * COST_PER_1K_TOKENS;
 
         /*
         |--------------------------------------------------------------------------
@@ -240,6 +231,12 @@ export const sendMessage = async (req, res) => {
             completion._request_id || "No disponible"
         );
 
+        console.log("📊 Tokens:");
+        console.log("➡️ Prompt:", promptTokens);
+        console.log("⬅️ Completion:", completionTokens);
+        console.log("🔢 Total:", totalTokens);
+        console.log("💰 Costo estimado: $", estimatedCost.toFixed(6));
+
         /*
         |--------------------------------------------------------------------------
         | RESPUESTA
@@ -248,6 +245,12 @@ export const sendMessage = async (req, res) => {
 
         return res.json({
             response: cleanResponse,
+            usage: {
+                promptTokens,
+                completionTokens,
+                totalTokens,
+                estimatedCost,
+            },
         });
 
     } catch (error) {
