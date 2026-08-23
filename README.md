@@ -111,63 +111,100 @@ El backend incorpora diferentes medidas para controlar las solicitudes:
 1. Clona el repositorio:
 
 ```bash
+
 git clone https://github.com/Patogol35/groqbot
 Ingresa a la carpeta del proyecto:
+
+```
+
+2. Ingresa a la carpeta del proyecto:
+
+```bash
+
 cd groqbot
-Instala las dependencias:
+
+```
+
+3. Instala las dependencias:
+
+```bash
+
 npm install
-Crea un archivo .env en la raíz del proyecto:
+
+```
+
+4. Crea un archivo .env en la raíz del proyecto:
+
+```bash
+
 GROQ_API_KEY=tu_api_key
 PORT=3001
+
+```
+
 Ejecuta el servidor en modo desarrollo:
+
+```bash
 npm run dev
+
+```
+
 Para ejecutar el servidor:
-npm start
+
+```bash
+
+npm run dev
+
+```
+
 El backend estará disponible en:
+
 http://localhost:3001
+
 🔌 API
+
 Endpoint principal:
+
 POST /api/chat
+
 Ejemplo de solicitud:
 {
   "message": "¿Qué tecnologías utiliza Jorge?",
   "history": []
 }
+
 Ejemplo de respuesta:
+
 {
   "response": "Jorge trabaja con tecnologías como React, JavaScript, Python, Django, Java, PostgreSQL y MySQL."
 }
+
 🖥 Funcionamiento
-El usuario escribe un mensaje en el chatbot.
-El frontend envía la solicitud al endpoint /api/chat.
-El backend valida y limpia el mensaje recibido.
-Se procesa el historial de conversación.
-Se envía la información al modelo de inteligencia artificial mediante Groq.
-Sasha genera una respuesta utilizando el contexto y las instrucciones configuradas.
-El backend devuelve la respuesta al frontend.
-📁 Estructura del proyecto
-chatbot-backend/
-│
-├── src/
-│   ├── app.js
-│   │
-│   ├── controllers/
-│   │   └── chat.controller.js
-│   │
-│   └── routes/
-│       └── chat.routes.js
-│
-├── server.js
-├── package.json
-├── package-lock.json
-├── .env
-└── .gitignore
+
+- El usuario escribe un mensaje en el chatbot.
+
+-;El frontend envía la solicitud al endpoint /api/chat.
+
+- El backend valida y limpia el mensaje recibido.
+
+- Se procesa el historial de conversación.
+
+- Se envía la información al modelo de inteligencia artificial mediante Groq.
+
+- Sasha genera una respuesta utilizando el contexto y las instrucciones configuradas.
+
+- El backend devuelve la respuesta al frontend.
+
 🌐 Despliegue
+
 El backend puede desplegarse en servicios como Render utilizando las variables de entorno necesarias.
+
 Variable requerida:
+
 GROQ_API_KEY
+
 El servidor utiliza automáticamente el puerto proporcionado por la plataforma mediante la variable:
-PORT
+
 👨‍💻 Autor
 Jorge Patricio Santamaría Cherrez
 Máster en Ingeniería de Software y Sistemas Informáticos
