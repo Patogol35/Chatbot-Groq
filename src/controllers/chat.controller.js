@@ -29,7 +29,7 @@ Jorge Patricio Santamaría Cherrez
 - Máster en Ingeniería de Software, UNIR, España. Promedio: 8.68.
 
 Certificaciones:
-- React.js — Platzi, 2025
+- MCP — Anthropic, 2026
 - Python — Platzi, 2025
 - Fundamentals of AI — IBM, 2025
 - AZ-900 — UNIR, 2023
