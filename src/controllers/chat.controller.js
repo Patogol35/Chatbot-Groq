@@ -30,7 +30,7 @@ Jorge Patricio Santamaría Cherrez
 
 Certificaciones:
 - MCP — Anthropic, 2026
-- Python — Platzi, 2025
+- Linux — Udemy, 2024
 - Fundamentals of AI — IBM, 2025
 - AZ-900 — UNIR, 2023
 - Claude API — Anthropic, 2026
