@@ -12,7 +12,7 @@ const groq = new Groq({
 
 const MODEL = "openai/gpt-oss-20b";
 
-const const MAX_MESSAGE_LENGTH = 1000;
+const MAX_MESSAGE_LENGTH = 1000;
 const MAX_HISTORY_MESSAGES = 8;
 const MAX_COMPLETION_TOKENS = 300;
 const COST_PER_1K_TOKENS = 0.0002;
