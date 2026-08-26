@@ -1,5 +1,4 @@
 import Groq from "groq-sdk";
-import { getLocalResponse } from "../utils/localResponses.js";
 
 const groq = new Groq({
     apiKey: process.env.GROQ_API_KEY,
@@ -149,56 +148,19 @@ export const sendMessage = async (req, res) => {
             });
         }
 
-        /*
-        |--------------------------------------------------------------------------
-        | RESPUESTA LOCAL
-        |--------------------------------------------------------------------------
-        |
-        | Si existe una respuesta preparada:
-        | - NO se llama a Groq
-        | - NO consume tokens
-        | - NO consume cuota de Groq
-        |
-        */
+        const cleanHistory = sanitizeHistory(history);
 
-        const localResponse = getLocalResponse(userMessage);
-
-        if (localResponse) {
-            console.log("⚡ RESPUESTA LOCAL");
-            console.log("🤖 Groq no fue utilizado");
-            console.log("💰 Tokens utilizados: 0");
-
-            return res.json({
-                response: localResponse,
-                source: "local",
-                usage: {
-                    promptTokens: 0,
-                    completionTokens: 0,
-                    totalTokens: 0,
-                    estimatedCost: 0,
-                },
-            });
-        }
+        const messages = [
+            { role: "system", content: SYSTEM_PROMPT },
+            ...cleanHistory,
+            { role: "user", content: userMessage },
+        ];
 
         /*
         |--------------------------------------------------------------------------
         | GROQ
         |--------------------------------------------------------------------------
         */
-
-        const cleanHistory = sanitizeHistory(history);
-
-        const messages = [
-            {
-                role: "system",
-                content: SYSTEM_PROMPT,
-            },
-            ...cleanHistory,
-            {
-                role: "user",
-                content: userMessage,
-            },
-        ];
 
         const completion = await groq.chat.completions.create({
             model: MODEL,
@@ -249,7 +211,6 @@ export const sendMessage = async (req, res) => {
 
         console.log("🤖 Sasha respondió correctamente");
         console.log("🧠 Modelo:", MODEL);
-
         console.log(
             "🆔 Request ID:",
             completion._request_id || "No disponible"
@@ -259,10 +220,7 @@ export const sendMessage = async (req, res) => {
         console.log("➡️ Prompt:", promptTokens);
         console.log("⬅️ Completion:", completionTokens);
         console.log("🔢 Total:", totalTokens);
-        console.log(
-            "💰 Costo estimado: $",
-            estimatedCost.toFixed(6)
-        );
+        console.log("💰 Costo estimado: $", estimatedCost.toFixed(6));
 
         /*
         |--------------------------------------------------------------------------
@@ -272,7 +230,6 @@ export const sendMessage = async (req, res) => {
 
         return res.json({
             response: cleanResponse,
-            source: "groq",
             usage: {
                 promptTokens,
                 completionTokens,
