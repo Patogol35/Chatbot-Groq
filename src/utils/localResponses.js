@@ -578,11 +578,25 @@ const LOCAL_RESPONSES = [
 const isAboutJorge = (message) => {
     const normalized = normalizeText(message);
 
+
     const jorgeKeywords = [
-        "jorge",
-        "santamaria",
-        "santamaria cherrez",
-    ];
+    "jorge",
+    "patricio",
+    "santamaria",
+    "santamaria cherrez",
+
+    // Combinaciones del nombre
+    "jorge patricio",
+    "jorge santamaria",
+    "jorge cherrez",
+    "patricio santamaria",
+    "patricio cherrez",
+    "jorge patricio santamaria",
+    "jorge patricio cherrez",
+    "jorge santamaria cherrez",
+    "patricio santamaria cherrez",
+    "jorge patricio santamaria cherrez",
+];
 
     return jorgeKeywords.some((keyword) =>
         normalized.includes(normalizeText(keyword))
