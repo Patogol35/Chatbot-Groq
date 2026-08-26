@@ -204,23 +204,24 @@ export const sendMessage = async (req, res) => {
             .replace(/\*/g, "");
 
         /*
-        |--------------------------------------------------------------------------
-        | LOG
-        |--------------------------------------------------------------------------
-        */
+|--------------------------------------------------------------------------
+| LOG
+|--------------------------------------------------------------------------
+*/
 
-        console.log("🤖 Sasha respondió correctamente");
-        console.log("🧠 Modelo:", MODEL);
-        console.log(
-            "🆔 Request ID:",
-            completion._request_id || "No disponible"
-        );
+console.log("🤖 Sasha respondió correctamente");
+console.log("👤 Pregunta:", userMessage);
+console.log("🧠 Modelo:", MODEL);
+console.log(
+    "🆔 Request ID:",
+    completion._request_id || "No disponible"
+);
 
-        console.log("📊 Tokens:");
-        console.log("➡️ Prompt:", promptTokens);
-        console.log("⬅️ Completion:", completionTokens);
-        console.log("🔢 Total:", totalTokens);
-        console.log("💰 Costo estimado: $", estimatedCost.toFixed(6));
+console.log("📊 Tokens:");
+console.log("➡️ Prompt:", promptTokens);
+console.log("⬅️ Completion:", completionTokens);
+console.log("🔢 Total:", totalTokens);
+console.log("💰 Costo estimado: $", estimatedCost.toFixed(6));
 
         /*
         |--------------------------------------------------------------------------
