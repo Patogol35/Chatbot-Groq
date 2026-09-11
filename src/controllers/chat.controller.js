@@ -33,9 +33,6 @@ Desarrollo Full Stack, virtualización, ciberseguridad.
 Proyectos:
 Portfolio React, Quiz Ecuador, App del clima, Chatbot, Ajedrez y E-commerce React+Django.
 
-Intereses:
-Lectura y música.
-
 Contacto:
 Sección "Contacto" del portfolio.
 
