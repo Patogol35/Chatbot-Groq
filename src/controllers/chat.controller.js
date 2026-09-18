@@ -74,6 +74,76 @@ const isAboutJorge = (message) => {
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
 
+    /*
+    |--------------------------------------------------------------------------
+    | DISTANCIA DE LEVENSHTEIN
+    |--------------------------------------------------------------------------
+    */
+
+    const levenshtein = (a, b) => {
+        const matrix = Array.from(
+            { length: a.length + 1 },
+            () => Array(b.length + 1).fill(0)
+        );
+
+        for (let i = 0; i <= a.length; i++) {
+            matrix[i][0] = i;
+        }
+
+        for (let j = 0; j <= b.length; j++) {
+            matrix[0][j] = j;
+        }
+
+        for (let i = 1; i <= a.length; i++) {
+            for (let j = 1; j <= b.length; j++) {
+                const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j - 1] + cost
+                );
+            }
+        }
+
+        return matrix[a.length][b.length];
+    };
+
+    const words = text.split(/\s+/).filter(Boolean);
+
+    return keywords.some((keyword) => {
+        const normalizedKeyword = keyword
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+
+        // Frases completas
+        if (normalizedKeyword.includes(" ")) {
+            return text.includes(normalizedKeyword);
+        }
+
+        // Coincidencia normal
+        if (text.includes(normalizedKeyword)) {
+            return true;
+        }
+
+        // Palabras parecidas
+        return words.some((word) => {
+            if (word.length < 4 || normalizedKeyword.length < 4) {
+                return false;
+            }
+
+            const maxDistance =
+                normalizedKeyword.length >= 8 ? 2 : 1;
+
+            return (
+                levenshtein(word, normalizedKeyword) <=
+                maxDistance
+            );
+        });
+    });
+};
+
     const keywords = [
     "jorge",
 
