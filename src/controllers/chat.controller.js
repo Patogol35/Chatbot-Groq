@@ -17,13 +17,6 @@ Estudios:
 - Ingeniería en Sistemas, Universidad Indoamérica, Ecuador — 9/10.
 - Máster en Ingeniería de Software, UNIR, España — 8.68/10.
 
-Certificaciones:
-- Model Context Protocol, Anthropic, 2026
-- Claude API, Anthropic, 2026
-- Fundamentals of AI, IBM, 2025
-- Linux, Udemy, 2024
-- AZ-900, UNIR, 2023
-
 Stack:
 React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel.
 
@@ -31,7 +24,7 @@ Proyectos:
 Portfolio React, Quiz Ecuador, App del clima, Chatbot, Ajedrez y E-commerce React+Django.
 
 Contacto:
-Sección "Contacto" del portfolio.
+Sección "Contacto" del portfolio, https://portafolio-jorgepatricio.vercel.app.
 
 `;
 
