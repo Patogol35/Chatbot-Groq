@@ -96,7 +96,7 @@ const isAboutJorge = (message) => {
         "portafolio",
         "contacto",
         "universidad",
-        "unir",
+        "unir", 
         "indoamerica",
         "anthropic",
         "ibm",
@@ -104,16 +104,8 @@ const isAboutJorge = (message) => {
         "az-900",
         "mcp",
         "claude api",
-        "virtualbox",
-        "postman",
-        "libreoffice",
-        "django",
-        "react",
-        "postgresql",
-        "mysql",
-        "render",
-        "vercel",
-        "aws",
+        
+        
     ];
 
     return keywords.some((keyword) => text.includes(keyword));
