@@ -30,7 +30,7 @@ Certificaciones:
 - AZ-900, UNIR, 2023
 
 Stack:
-React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS.
+React, Django, Java, PostgreSQL, MySQL, Render, Vercel.
 
 Herramientas:
 VirtualBox, Postman, LibreOffice.
@@ -113,7 +113,6 @@ const isAboutJorge = (message) => {
         "mysql",
         "render",
         "vercel",
-        "aws",
     ];
 
     return keywords.some((keyword) => text.includes(keyword));
