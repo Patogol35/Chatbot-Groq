@@ -39,7 +39,7 @@ Proyectos:
 Portfolio React, Quiz Ecuador, App del clima, Chatbot, Ajedrez y E-commerce React+Django.
 
 Contacto:
-Sección "Contacto".
+Sección "Contacto" del portfolio.
 `;
 
 /* =========================
