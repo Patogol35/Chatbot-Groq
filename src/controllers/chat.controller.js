@@ -75,33 +75,77 @@ const isAboutJorge = (message) => {
         .replace(/[\u0300-\u036f]/g, "");
 
     const keywords = [
-        "jorge",
-        "perfil",
-        "estudios",
-        "estudio",
-        "ingenieria",
-        "master",
-        "certificacion",
-        "certificaciones",
-        "certificado",
-        "certificados",
-        "tecnologias",
-        "tecnologia que usa",
-        "stack",
-        "herramientas que usa",
-        "herramientas de jorge",
-        "proyectos",
-        "proyecto de jorge",
-        "portfolio",
-        "portafolio",
-        "contacto",
-        "universidad",
-        "unir", 
-        "indoamerica",
-        
-        
-        
-    ];
+    "jorge",
+
+    // Perfil
+    "perfil",
+    "informacion sobre jorge",
+    "informacion de jorge",
+    "datos de jorge",
+    "experiencia",
+    "trayectoria",
+    "biografia",
+
+    // Estudios
+    "estudios",
+    "estudio",
+    "formacion",
+    "formacion academica",
+    "educacion",
+    "carrera",
+    "titulo",
+    "titulos",
+    "grado",
+    "grados",
+    "profesion",
+    "ingenieria",
+    "master",
+    "maestria",
+
+    // Certificaciones / cursos
+    "certificacion",
+    "certificaciones",
+    "certificado",
+    "certificados",
+    "curso",
+    "cursos",
+    "capacitacion",
+    "capacitaciones",
+    "credencial",
+    "credenciales",
+    "acreditacion",
+    "acreditaciones",
+    "diploma",
+    "diplomas",
+
+    // Tecnologías / herramientas
+    "tecnologias",
+    "tecnologia que usa",
+    "tecnologias que usa",
+    "stack",
+    "herramientas",
+    "herramientas que usa",
+    "lenguajes",
+    "frameworks",
+
+    // Proyectos
+    "proyectos",
+    "proyecto",
+    "trabajos",
+    "trabajos realizados",
+    "desarrollos",
+    "aplicaciones",
+    "apps",
+    "portfolio",
+    "portafolio",
+
+    // Contacto
+    "contacto",
+    "contactar",
+    "contactarme",
+    "comunicarme",
+    "comunicacion",
+];
 
     return keywords.some((keyword) => text.includes(keyword));
 };
