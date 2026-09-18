@@ -98,12 +98,7 @@ const isAboutJorge = (message) => {
         "universidad",
         "unir", 
         "indoamerica",
-        "anthropic",
-        "ibm",
-        "udemy",
-        "az-900",
-        "mcp",
-        "claude api",
+        
         
         
     ];
