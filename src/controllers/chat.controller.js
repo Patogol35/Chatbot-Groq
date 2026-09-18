@@ -67,6 +67,79 @@ indica que pueden hacerlo desde la sección "Contacto".
 /* =========================
    DETECTAR PREGUNTAS SOBRE JORGE
 ========================= */
+const keywords = [
+    "jorge",
+
+    // Perfil
+    "perfil",
+    "informacion sobre jorge",
+    "informacion de jorge",
+    "datos de jorge",
+    "experiencia",
+    "trayectoria",
+    "biografia",
+
+    // Estudios
+    "estudios",
+    "estudio",
+    "formacion",
+    "formacion academica",
+    "educacion",
+    "carrera",
+    "titulo",
+    "titulos",
+    "grado",
+    "grados",
+    "profesion",
+    "ingenieria",
+    "master",
+    "maestria",
+
+    // Certificaciones / cursos
+    "certificacion",
+    "certificaciones",
+    "certificado",
+    "certificados",
+    "curso",
+    "cursos",
+    "capacitacion",
+    "capacitaciones",
+    "credencial",
+    "credenciales",
+    "acreditacion",
+    "acreditaciones",
+    "diploma",
+    "diplomas",
+
+    // Tecnologías / herramientas
+    "tecnologias",
+    "tecnologia que usa",
+    "tecnologias que usa",
+    "stack",
+    "herramientas",
+    "herramientas que usa",
+    "lenguajes",
+    "frameworks",
+
+    // Proyectos
+    "proyectos",
+    "proyecto",
+    "trabajos",
+    "trabajos realizados",
+    "desarrollos",
+    "aplicaciones",
+    "apps",
+    "portfolio",
+    "portafolio",
+
+    // Contacto
+    "contacto",
+    "contactar",
+    "contactarme",
+    "comunicarme",
+    "comunicacion",
+];
+
 
 const isAboutJorge = (message) => {
     const text = message
@@ -144,81 +217,8 @@ const isAboutJorge = (message) => {
     });
 };
 
-    const keywords = [
-    "jorge",
-
-    // Perfil
-    "perfil",
-    "informacion sobre jorge",
-    "informacion de jorge",
-    "datos de jorge",
-    "experiencia",
-    "trayectoria",
-    "biografia",
-
-    // Estudios
-    "estudios",
-    "estudio",
-    "formacion",
-    "formacion academica",
-    "educacion",
-    "carrera",
-    "titulo",
-    "titulos",
-    "grado",
-    "grados",
-    "profesion",
-    "ingenieria",
-    "master",
-    "maestria",
-
-    // Certificaciones / cursos
-    "certificacion",
-    "certificaciones",
-    "certificado",
-    "certificados",
-    "curso",
-    "cursos",
-    "capacitacion",
-    "capacitaciones",
-    "credencial",
-    "credenciales",
-    "acreditacion",
-    "acreditaciones",
-    "diploma",
-    "diplomas",
-
-    // Tecnologías / herramientas
-    "tecnologias",
-    "tecnologia que usa",
-    "tecnologias que usa",
-    "stack",
-    "herramientas",
-    "herramientas que usa",
-    "lenguajes",
-    "frameworks",
-
-    // Proyectos
-    "proyectos",
-    "proyecto",
-    "trabajos",
-    "trabajos realizados",
-    "desarrollos",
-    "aplicaciones",
-    "apps",
-    "portfolio",
-    "portafolio",
-
-    // Contacto
-    "contacto",
-    "contactar",
-    "contactarme",
-    "comunicarme",
-    "comunicacion",
-];
-
-    return keywords.some((keyword) => text.includes(keyword));
-};
+    
+    
 
 /* =========================
    LIMPIAR HISTORIAL
