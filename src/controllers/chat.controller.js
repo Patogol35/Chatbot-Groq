@@ -25,10 +25,7 @@ Certificaciones:
 - AZ-900, UNIR, 2023
 
 Stack:
-React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS.
-
-Especialidades:
-Desarrollo Full Stack, virtualización, ciberseguridad.
+React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel.
 
 Proyectos:
 Portfolio React, Quiz Ecuador, App del clima, Chatbot, Ajedrez y E-commerce React+Django.
