@@ -211,6 +211,20 @@ export const sendMessage = async (req, res) => {
         }
 
         const userMessage = message.trim();
+        const localResponse = getLocalResponse(userMessage);
+
+if (localResponse) {
+    return res.json({
+        response: localResponse,
+        usage: {
+            promptTokens: 0,
+            completionTokens: 0,
+            totalTokens: 0,
+            estimatedCost: 0,
+        },
+        source: "local",
+    });
+}
 
         if (userMessage.length > MAX_MESSAGE_LENGTH) {
             return res.status(400).json({
