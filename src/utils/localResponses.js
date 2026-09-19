@@ -270,7 +270,16 @@ const COMMON_WORDS = new Set([
 */
 
 const containsValidName = (message) => {
-    const normalized = normalizeText(message);
+    let normalizedMessage = normalizeText(message);
+
+normalizedMessage = normalizedMessage
+    .split(/\s+/)
+    .map(word =>
+        isSimilarToJorge(word)
+            ? "jorge"
+            : word
+    )
+    .join(" ");
 
     return VALID_NAMES.some((name) => {
         const normalizedName = normalizeText(name);
