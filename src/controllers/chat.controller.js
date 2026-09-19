@@ -27,8 +27,8 @@ Certificaciones:
 Stack:
 React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS.
 
-Tools:
-VirtualBox, LibreOffice, RustDesk, Postman.
+Especialidades:
+Desarrollo Full Stack, virtualización, ciberseguridad.
 
 Proyectos:
 Portfolio React, Quiz Ecuador, App del clima, Chatbot, Ajedrez y E-commerce React+Django.
