@@ -101,6 +101,9 @@ ${JORGE_INFO}
 const JORGE_KEYWORDS = [
     "jorge",
     "patricio",
+    "pato",
+    "patito",
+    "jorgito",
     "santamaria",
     "santamaria cherrez",
     "jorge patricio",
@@ -163,10 +166,13 @@ const normalizeText = (text) => {
 const isJorgeQuestion = (message) => {
     const text = normalizeText(message);
 
-    return JORGE_KEYWORDS.some((keyword) =>
-        text.includes(normalizeText(keyword))
+    return (
+        /\bjorge[a-z]*\b/i.test(text) ||
+        JORGE_KEYWORDS.some((keyword) =>
+            text.includes(normalizeText(keyword))
+        )
     );
-};
+}; 
 
 
 /*
