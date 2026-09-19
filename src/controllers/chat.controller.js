@@ -377,6 +377,22 @@ export const sendMessage = async (req, res) => {
         */
 
         const aboutJorge = isJorgeQuestion(userMessage);
+        if (aboutJorge) {
+    const localResponse = getLocalResponse(userMessage);
+
+    if (localResponse) {
+        return res.json({
+            response: localResponse,
+            usage: {
+                promptTokens: 0,
+                completionTokens: 0,
+                totalTokens: 0,
+                estimatedCost: 0,
+                source: "local",
+            },
+        });
+    }
+        }
 
         const cleanHistory = sanitizeHistory(history);
 
