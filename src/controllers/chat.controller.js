@@ -28,7 +28,7 @@ Stack:
 React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS.
 
 Tools:
-Virtualbox, LibreOffice, RustDesk, Postman.
+VirtualBox, LibreOffice, RustDesk, Postman.
 
 Proyectos:
 Portfolio React, Quiz Ecuador, App del clima, Chatbot, Ajedrez y E-commerce React+Django.
