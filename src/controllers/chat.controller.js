@@ -287,12 +287,11 @@ export const sendMessage = async (req, res) => {
         */
 
         const completion = await groq.chat.completions.create({
-  model: "deepseek-r1-distill-llama-70b", // Asegúrate de usar un modelo de razonamiento (R1)
-  messages,
-  temperature: 0.6,                       // Sube un poco la temperatura para razonamiento creativo
-  max_completion_tokens: 4096,            // Asegura suficientes tokens para el pensamiento interno
-  reasoning_effort: "high",               // 🧠 Fuerza el máximo nivel de análisis y lógica
-  stream: false,
+    model: MODEL,
+    messages,
+    temperature: 0.4,
+    max_completion_tokens: MAX_COMPLETION_TOKENS,
+    stream: false,
 });
 
 
