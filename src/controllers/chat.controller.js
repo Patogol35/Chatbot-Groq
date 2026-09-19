@@ -291,7 +291,7 @@ export const sendMessage = async (req, res) => {
             messages,
             temperature: 0.3,
             max_completion_tokens: MAX_COMPLETION_TOKENS,
-            reasoning_effort: "high",
+            reasoning_effort: "low",
             stream: false,
         });
 
