@@ -323,25 +323,25 @@ keywords: [
             "lenguajes",
         ],
         responses: [
-    "Jorge trabaja principalmente con React, JavaScript, Django, Java, PostgreSQL y MySQL. También utiliza Render, Vercel y AWS.",
+    "Jorge trabaja principalmente con React, JavaScript, Django, Java, PostgreSQL y MySQL. También utiliza Render, Vercel, AWS, VirtualBox, RustDesk y Postman.",
 
-    "Su stack tecnológico combina React y JavaScript para el desarrollo frontend, Django y Java para backend, y PostgreSQL y MySQL para bases de datos.",
+    "Su stack tecnológico combina React y JavaScript para el desarrollo frontend, Django y Java para backend, PostgreSQL y MySQL para bases de datos, además de herramientas como Postman, VirtualBox y RustDesk.",
 
-    "Entre las principales tecnologías de Jorge se encuentran React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel y AWS.",
+    "Entre las principales tecnologías y herramientas de Jorge se encuentran React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS, VirtualBox, RustDesk y Postman.",
 
-    "Jorge tiene experiencia en desarrollo Full Stack utilizando React y JavaScript en frontend, Django y Java en backend, además de PostgreSQL y MySQL.",
+    "Jorge tiene experiencia en desarrollo Full Stack utilizando React y JavaScript en frontend, Django y Java en backend, además de PostgreSQL y MySQL. También utiliza Postman para trabajar con APIs y herramientas como VirtualBox y RustDesk.",
 
-    "Su perfil técnico abarca desarrollo web Full Stack, trabajando con React, JavaScript, Django y Java, junto con bases de datos como PostgreSQL y MySQL.",
+    "Su perfil técnico abarca desarrollo web Full Stack, trabajando con React, JavaScript, Django y Java, junto con bases de datos como PostgreSQL y MySQL. También utiliza Postman, VirtualBox y RustDesk.",
 
-    "Jorge utiliza tecnologías modernas para desarrollar aplicaciones web, entre ellas React, JavaScript, Django, Java, PostgreSQL y MySQL, además de servicios como Render, Vercel y AWS.",
+    "Jorge utiliza tecnologías y herramientas para desarrollar, probar y administrar aplicaciones, entre ellas React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox y RustDesk, además de servicios como Render, Vercel y AWS.",
 
-    "En frontend, Jorge trabaja principalmente con React y JavaScript; en backend utiliza Django y Java, y tiene experiencia con PostgreSQL y MySQL.",
+    "En frontend, Jorge trabaja principalmente con React y JavaScript; en backend utiliza Django y Java, y tiene experiencia con PostgreSQL y MySQL. Para pruebas y desarrollo utiliza Postman, mientras que también trabaja con VirtualBox y RustDesk.",
 
-    "Su experiencia tecnológica incluye desarrollo frontend, backend, bases de datos y despliegue de aplicaciones mediante React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel y AWS.",
+    "Su experiencia tecnológica incluye desarrollo frontend, backend, bases de datos, pruebas de APIs, virtualización y soporte remoto mediante React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, RustDesk, Render, Vercel y AWS.",
 
-    "Jorge cuenta con un stack orientado al desarrollo de aplicaciones web, combinando React, JavaScript, Django y Java con PostgreSQL y MySQL, además de plataformas de despliegue como Render, Vercel y AWS.",
+    "Jorge cuenta con un stack orientado al desarrollo de aplicaciones web, combinando React, JavaScript, Django y Java con PostgreSQL y MySQL. También utiliza Postman, VirtualBox y RustDesk, además de plataformas de despliegue como Render, Vercel y AWS.",
 
-    "Las principales tecnologías que forman parte del perfil de Jorge son React, JavaScript, Django, Java, PostgreSQL y MySQL. También trabaja con servicios de despliegue y nube como Render, Vercel y AWS."
+    "Las principales tecnologías y herramientas que forman parte del perfil de Jorge son React, JavaScript, Django, Java, PostgreSQL y MySQL. También trabaja con Postman, VirtualBox, RustDesk y servicios de despliegue y nube como Render, Vercel y AWS."
 ],
     },
 
