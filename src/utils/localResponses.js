@@ -448,20 +448,7 @@ export const getLocalResponse = (message) => {
     ];
 
     const conceptualTopics = [
-        // Frontend
-        "frontend",
-        "front end",
-        "front-end",
-
-        // Backend
-        "backend",
-        "back end",
-        "back-end",
-
-        // Bases de datos
-        "base de datos",
-        "bases de datos",
-
+        
         // Formación
         "formacion",
 
