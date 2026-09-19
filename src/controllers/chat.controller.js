@@ -287,13 +287,13 @@ export const sendMessage = async (req, res) => {
         */
 
         const completion = await groq.chat.completions.create({
-    model: MODEL,
-    messages,
-    temperature: 0.4,
-    max_completion_tokens: MAX_COMPLETION_TOKENS,
-    stream: false,
-});
-
+            model: MODEL,
+            messages,
+            temperature: 0.3,
+            max_completion_tokens: MAX_COMPLETION_TOKENS,
+            reasoning_effort: "low",
+            stream: false,
+        });
 
         /*
         |--------------------------------------------------------------------------
