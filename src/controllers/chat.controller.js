@@ -93,6 +93,7 @@ const keywords = [
     "ingenieria",
     "master",
     "maestria",
+    "notas",
 
     // Certificaciones / cursos
     "certificacion",
