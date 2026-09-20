@@ -346,8 +346,7 @@ keywords: [
     },
 
     
-        
-    {
+             {
         category: "proyectos",
         keywords: [
             "proyectos",
@@ -477,5 +476,156 @@ keywords: [
         'La sección "Contacto" del portfolio es el lugar indicado para comunicarte con Jorge.',
         'Si necesitas comunicarte con Jorge, entra a la sección "Contacto" y utiliza la opción que prefieras.',
     ],
-}
+},
+{
+    category: "sasha",
+    keywords: [
+        "quien eres",
+        "que eres",
+        "como te llamas",
+        "tu nombre",
+        "quien es sasha",
+        "que es sasha",
+        "hablame de ti",
+        "cuentame de ti",
+        "dime quien eres",
+        "como te llamas sasha",
+        "que haces",
+        "cual es tu funcion",
+        "cual es tu trabajo",
+        "para que sirves",
+    ],
+    responses: [
+        "Soy Sasha, la asistente virtual del portfolio de Jorge.",
+        "Me llamo Sasha y soy la asistente virtual del portfolio de Jorge.",
+        "Soy Sasha, una IA creada para asistir a los visitantes del portfolio de Jorge.",
+        "Mi nombre es Sasha y funciono como asistente virtual del portfolio de Jorge.",
+        "Soy Sasha, la asistente virtual encargada de ayudarte a conocer el portfolio de Jorge.",
+        "Me llamo Sasha 😊. Estoy aquí para responder tus preguntas sobre Jorge y su trabajo.",
+        "Soy Sasha, una asistente virtual desarrollada para acompañar a los visitantes del portfolio de Jorge.",
+        "¡Soy Sasha! 👋 Puedo ayudarte a conocer el perfil, estudios, proyectos y habilidades de Jorge.",
+        "Soy Sasha y mi función es ayudarte a descubrir más sobre el trabajo y trayectoria profesional de Jorge.",
+        "Soy Sasha, la asistente virtual de Jorge. 😊 Pregúntame lo que quieras sobre su portfolio.",
+    ],
+},
+
+    {
+    category: "sasha_saludos",
+    keywords: [
+        "hola",
+        "buenas",
+        "buenos dias",
+        "buenas tardes",
+        "buenas noches",
+        "hey",
+    ],
+    responses: [
+        "¡Hola! Soy Sasha, la asistente virtual del portfolio de Jorge. ¿En qué puedo ayudarte?",
+        "¡Hola! 👋 Soy Sasha. ¿Qué te gustaría saber?",
+        "¡Buenas! Soy Sasha, la asistente virtual del guapo de Jorge. Estoy aquí para ayudarte.",
+        "¡Hola! Qué gusto tenerte por aquí. ¿Qué quieres conocer?",
+        "¡Hey! 👋 Bienvenido al portfolio de Jorge. Soy Sasha, ¿en qué puedo ayudarte?",
+        "¡Hola! 😊 Me alegra verte por aquí. ¿Quieres conocer más sobre Jorge?",
+        "¡Buenas! 👋 Soy Sasha y estoy lista para ayudarte a conocer el trabajo de Jorge.",
+        "¡Hola! Qué bueno tenerte por aquí. Dime, ¿qué te gustaría saber?",
+        "¡Buenos días! 😊 Soy Sasha, la asistente virtual de Jorge. ¿Cómo puedo ayudarte?",
+        "¡Buenas tardes/noches! 👋 Soy Sasha. Pregúntame lo que quieras sobre el portfolio de Jorge.",
+    ],
+},
+
+{
+    category: "sasha_gracias",
+    keywords: [
+        "gracias",
+        "muchas gracias",
+        "te agradezco",
+        "gracias sasha",
+        "muy agradecido",
+    ],
+    responses: [
+        "¡De nada! 😊",
+        "¡Con gusto! Estoy aquí para ayudarte.",
+        "¡No hay de qué! 😊",
+        "¡Cuando quieras! ¿Necesitas algo más?",
+        "¡Un placer ayudarte! 😊",
+        "¡No tienes nada que agradecer! Estoy para ayudarte.",
+        "¡Con mucho gusto! ¿Hay algo más que quieras saber?",
+        "¡De nada! Me alegra poder ayudarte. 😊",
+        "¡Para eso estoy! Cuando quieras, puedes preguntarme.",
+        "¡Encantada de ayudarte! 😊 ¿Necesitas algo más?",
+    ],
+},
+
+{
+    category: "sasha_despedida",
+    keywords: [
+        "chao",
+        "adios",
+        "hasta luego",
+        "nos vemos",
+        "me voy",
+        "bye",
+        "hasta pronto",
+    ],
+    responses: [
+        "¡Chao! 👋 Gracias por visitar el portfolio de Jorge.",
+        "¡Hasta luego! Fue un gusto ayudarte. 😊",
+        "¡Nos vemos! 👋 Espero que vuelvas pronto.",
+        "¡Adiós! Que tengas un excelente día.",
+        "¡Hasta pronto! 👋 Espero verte nuevamente por aquí.",
+        "¡Chao! 😊 Ha sido un gusto conversar contigo.",
+        "¡Nos vemos! Que tengas un excelente día. 👋",
+        "¡Hasta luego! Gracias por pasar por el portfolio de Jorge.",
+        "¡Adiós! 👋 Cuando quieras, aquí estará Sasha para ayudarte.",
+        "¡Hasta pronto! 😊 Espero que hayas encontrado lo que buscabas.",
+    ],
+},
+
+{
+    category: "sasha_estado",
+    keywords: [
+        "como estas",
+        "como te encuentras",
+        "estas bien",
+        "como te va",
+        "como vas",
+    ],
+    responses: [
+        "¡Muy bien, gracias por preguntar! 😊 ¿En qué puedo ayudarte?",
+        "Estoy muy bien y lista para ayudarte. ¿Qué quieres saber?",
+        "¡Todo bien por aquí! Soy Sasha, siempre lista para ayudarte.",
+        "Muy bien, gracias. 😊 ¿Quieres conocer algo sobre Jorge?",
+        "¡Estoy genial! Siempre disponible para ayudarte con el portfolio de Jorge.",
+        "Todo marcha muy bien por aquí. 😊 ¿Qué te gustaría conocer?",
+        "¡Muy bien! Gracias por preguntar. ¿Quieres que te cuente algo sobre Jorge?",
+        "Estoy excelente y preparada para ayudarte. ¿Qué necesitas saber?",
+        "¡Todo perfecto! 😊 Dime qué quieres conocer del portfolio de Jorge.",
+        "Muy bien, gracias. ¡Es un gusto conversar contigo! ¿En qué puedo ayudarte?",
+    ],
+},
+
+{
+    category: "sasha_creador",
+    keywords: [
+        "quien te creo",
+        "quien te creo a ti",
+        "quien te hizo",
+        "quien te programo",
+        "quien te desarrollo",
+        "quien desarrollo a sasha",
+        "quien te invento",
+    ],
+    responses: [
+        "Fui creada para funcionar como la asistente virtual del portfolio de Jorge Patricio Santamaría Cherrez.",
+        "Jorge Patricio Santamaría Cherrez desarrolló a Sasha como asistente virtual para su portfolio.",
+        "Soy una asistente virtual creada para el portfolio de Jorge Patricio Santamaría Cherrez.",
+        "Fui desarrollada como parte del portfolio de Jorge para ayudar a los visitantes a conocer su perfil y proyectos.",
+        "Jorge creó a Sasha para brindar información y ayudar a los visitantes de su portfolio.",
+        "Soy Sasha, una asistente virtual desarrollada por Jorge para acompañar a quienes visitan su portfolio.",
+        "Mi función es ayudar a los visitantes a conocer mejor el perfil profesional y los proyectos de Jorge.",
+        "Fui desarrollada por Jorge como parte de su portfolio de Ingeniería de Software.",
+        "Jorge Patricio Santamaría Cherrez es quien desarrolló a Sasha para interactuar con los visitantes de su portfolio.",
+        "Soy Sasha, la asistente virtual de Jorge, creada para responder preguntas sobre su perfil, estudios, proyectos y experiencia.",
+    ],
+},
 ];
