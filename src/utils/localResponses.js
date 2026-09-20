@@ -175,6 +175,7 @@ const COMMON_WORDS = new Set([
     "him",
     "introduce",
     "describe",
+    "certifications",
 
     
     "a",
