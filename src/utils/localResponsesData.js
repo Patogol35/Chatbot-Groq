@@ -640,5 +640,49 @@ responses: [
         "The main technologies and tools that are part of Jorge's profile include React, JavaScript, Django, Java, PostgreSQL, and MySQL. He also works with Postman, VirtualBox, RustDesk, and cloud and deployment services such as Render, Vercel, and AWS."
     ],
 },
+
+    {
+    category: "education",
+    keywords: [
+        "jorge's education",
+        "education",
+        "academic education",
+        "academic background",
+        "jorge's academic background",
+        "academic career",
+        "jorge's studies",
+        "academic studies",
+        "academic profile",
+        "academic history",
+        "academic preparation",
+        "education level",
+        "what is jorge's education",
+        "what did jorge study",
+        "where did jorge study",
+        "jorge's academic background",
+    ],
+
+    responses: [
+        "Jorge's academic background includes a degree in Systems Engineering from Universidad Indoamérica and a Master's degree in Software Engineering and Computer Systems from UNIR, Spain.",
+
+        "Jorge has an undergraduate degree in Systems Engineering and a postgraduate degree in Software Engineering and Computer Systems.",
+
+        "His academic background includes a degree in Systems Engineering in Ecuador and a Master's degree in Software Engineering and Computer Systems in Spain.",
+
+        "Regarding his academic background, Jorge has a degree in Systems Engineering and later completed a Master's degree specializing in Software Engineering and Computer Systems.",
+
+        "Jorge is a Systems Engineer and also holds a Master's degree in Software Engineering and Computer Systems.",
+
+        "His academic background combines studies in Systems Engineering in Ecuador with postgraduate studies in Spain.",
+
+        "Jorge's academic career began with a degree in Systems Engineering and continued with a Master's degree in Software Engineering and Computer Systems.",
+
+        "Jorge has undergraduate and postgraduate education focused on systems and software engineering.",
+
+        "His academic preparation includes a degree in Systems Engineering from Universidad Indoamérica and a Master's degree completed at UNIR.",
+
+        "In summary, Jorge has a degree in Systems Engineering and a Master's degree in Software Engineering and Computer Systems.",
+    ],
+},
         
 ];
