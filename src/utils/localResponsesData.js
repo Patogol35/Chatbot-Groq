@@ -598,5 +598,47 @@ responses: [
         "Jorge Patricio Santamaría Cherrez is a software professional with a background in Systems Engineering and a Master's degree in Software Engineering. He has developed various web projects and applications, with experience in React, Django, JavaScript, Java, and SQL.",
     ],
 },
+
+    {
+    category: "technologies",
+    keywords: [
+        "technologies",
+        "technology",
+        "tech stack",
+        "stack",
+        "tools",
+        "programming languages",
+        "languages",
+        "what technologies does jorge use",
+        "what tools does jorge use",
+        "jorge technologies",
+        "jorge tech stack",
+        "jorge tools",
+        "technical skills",
+        "development tools",
+    ],
+
+    responses: [
+        "Jorge mainly works with React, JavaScript, Django, Java, PostgreSQL, and MySQL. He also uses Render, Vercel, AWS, VirtualBox, RustDesk, and Postman.",
+
+        "His technology stack combines React and JavaScript for frontend development, Django and Java for backend development, PostgreSQL and MySQL for databases, along with tools such as Postman, VirtualBox, and RustDesk.",
+
+        "Among Jorge's main technologies and tools are React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS, VirtualBox, RustDesk, and Postman.",
+
+        "Jorge has Full Stack development experience using React and JavaScript for frontend, Django and Java for backend, as well as PostgreSQL and MySQL. He also uses Postman for API testing and tools such as VirtualBox and RustDesk.",
+
+        "His technical profile covers Full Stack web development, working with React, JavaScript, Django, and Java, together with databases such as PostgreSQL and MySQL. He also uses Postman, VirtualBox, and RustDesk.",
+
+        "Jorge uses technologies and tools to develop, test, and manage applications, including React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, and RustDesk, as well as services such as Render, Vercel, and AWS.",
+
+        "On the frontend, Jorge mainly works with React and JavaScript; on the backend, he uses Django and Java, and he has experience with PostgreSQL and MySQL. For testing and development, he uses Postman, while also working with VirtualBox and RustDesk.",
+
+        "His technology experience includes frontend development, backend development, databases, API testing, virtualization, and remote support using React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, RustDesk, Render, Vercel, and AWS.",
+
+        "Jorge has a technology stack focused on web application development, combining React, JavaScript, Django, and Java with PostgreSQL and MySQL. He also uses Postman, VirtualBox, and RustDesk, as well as deployment platforms such as Render, Vercel, and AWS.",
+
+        "The main technologies and tools that are part of Jorge's profile include React, JavaScript, Django, Java, PostgreSQL, and MySQL. He also works with Postman, VirtualBox, RustDesk, and cloud and deployment services such as Render, Vercel, and AWS."
+    ],
+},
         
 ];
