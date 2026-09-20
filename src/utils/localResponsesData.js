@@ -83,66 +83,6 @@ keywords: [
     ],
 },
 
-    {
-    category: "identity",
-    keywords: [
-        "who is jorge",
-        "who is jorge patricio",
-        "who is santamaria",
-        "who is santamaria cherrez",
-        "introduce me to jorge",
-        "tell me about him",
-
-        "profile",
-        "professional profile",
-        "jorge's professional profile",
-        "experience",
-        "jorge's experience",
-
-        "talk about jorge",
-        "talk about jorge's profile",
-        "tell me about jorge",
-        "tell me about jorge's experience",
-        "tell me about jorge",
-        "tell me more about jorge",
-        "i want to know about jorge",
-        "about jorge",
-
-        "tell me about him",
-        "tell me more about him",
-        "talk about him",
-        "talk to me about him",
-        "what can you tell me about jorge",
-        "who is this jorge",
-        "describe jorge",
-    ],
-
-    responses: [
-        "Jorge Patricio Santamaría Cherrez is a Systems Engineer with a Master's degree in Software Engineering. His experience focuses on Full Stack development, virtualization, and cybersecurity, working with technologies such as React, JavaScript, Django, Java, and SQL.",
-
-        "Jorge Patricio Santamaría Cherrez is a Software Engineering professional with a background in Systems Engineering and a Master's degree in Software Engineering.",
-
-        "Jorge is a Systems Engineer with a Master's degree in Software Engineering. He specializes in Full Stack development and has knowledge of virtualization and cybersecurity. He has developed web applications, a chatbot, a chess game, and an e-commerce platform.",
-
-        "Jorge holds a degree in Systems Engineering from Universidad Indoamérica and a Master's degree in Software Engineering and Computer Systems from UNIR.",
-
-        "Jorge Patricio is a systems professional with a Master's degree in Software Engineering. His main areas include Full Stack development, cybersecurity, and virtualization, using technologies such as React, Django, JavaScript, and Java.",
-
-        "Jorge Santamaría Cherrez is a Systems Engineer with a Master's degree in Software Engineering. He has worked on different technology projects, including React applications, an Ecuador quiz, a weather application, a chatbot, a chess game, and an online store.",
-
-        "Jorge works as a Software Engineer and Full Stack Developer. He has a background in Systems Engineering and a Master's degree in Software Engineering, with experience in technologies such as React, JavaScript, Django, Java, and SQL databases.",
-
-        "Jorge Patricio Santamaría Cherrez combines his background in Systems Engineering with a Master's degree in Software Engineering. His main areas of interest are Full Stack development, virtualization, and cybersecurity, where he works with different web technologies.",
-
-        "Jorge is a Systems Engineer with a Master's degree in Software Engineering. His experience includes web application development and Full Stack projects using technologies such as React, Django, JavaScript, Java, and SQL databases.",
-
-        "Jorge Patricio has a background in Systems Engineering and a Master's degree in Software Engineering. Throughout his career, he has developed projects such as a portfolio, an Ecuador quiz, a weather app, a chatbot, a chess game, and an e-commerce platform.",
-
-        "Jorge Santamaría specializes in software development and Full Stack development. He is a Systems Engineer with a Master's degree in Software Engineering and knowledge of React, JavaScript, Django, Java, SQL, virtualization, and cybersecurity.",
-
-        "Jorge Patricio Santamaría Cherrez is a software professional with a background in Systems Engineering and a Master's degree in Software Engineering. He has developed various web projects and applications, with experience in React, Django, JavaScript, Java, and SQL.",
-    ],
-},
 
 {
     category: "formacion",
@@ -539,4 +479,123 @@ keywords: [
         'Si necesitas comunicarte con Jorge, entra a la sección "Contacto" y utiliza la opción que prefieras.',
     ],
 }
+
+    {
+category: "contact",
+keywords: [
+"contact",
+"contact jorge",
+"contact jorge patricio",
+"contact me",
+"contact him",
+"get in touch",
+"get in touch with jorge",
+"talk to jorge",
+"talk to him",
+"talk to jorge patricio",
+"how can i contact",
+"how can i contact jorge",
+"how do i contact",
+"how do i contact jorge",
+"how to contact",
+"how to contact jorge",
+"how can i reach",
+"how can i reach jorge",
+"how do i reach jorge",
+"reach jorge",
+"i want to contact",
+"i want to contact jorge",
+"i want to talk to jorge",
+"i would like to contact jorge",
+"i would like to talk to jorge",
+"i need to contact jorge",
+"i need to talk to jorge",
+"where can i contact jorge",
+"where can i reach jorge",
+"how can i talk to jorge",
+"how can i communicate with jorge",
+"jorge's contact",
+"jorge contact",
+"contact information",
+"jorge's contact information",
+"contact details",
+"jorge's contact details",
+],
+
+responses: [
+    'You can contact Jorge through the "Contact" section of his portfolio.',
+    'To get in touch with Jorge, use the "Contact" section of his portfolio.',
+    'If you want to contact Jorge, you can find the corresponding option in the "Contact" section.',
+    'The recommended way to contact Jorge is through the "Contact" section of his portfolio.',
+    'You can find Jorge\'s contact options directly in his portfolio.',
+    'If you would like to talk to Jorge, visit the "Contact" section of his portfolio.',
+    'To communicate with Jorge, go to the "Contact" section, where you will find the available options.',
+    'Want to contact Jorge? You can do so through the "Contact" section of his portfolio.',
+    'The "Contact" section of the portfolio is the place to get in touch with Jorge.',
+    'If you need to contact Jorge, go to the "Contact" section and choose your preferred option.',
+],
+
+    }
+
+    {
+    category: "identity",
+    keywords: [
+        "who is jorge",
+        "who is jorge patricio",
+        "who is santamaria",
+        "who is santamaria cherrez",
+        "introduce me to jorge",
+        "tell me about him",
+
+        "profile",
+        "professional profile",
+        "jorge's professional profile",
+        "experience",
+        "jorge's experience",
+
+        "talk about jorge",
+        "talk about jorge's profile",
+        "tell me about jorge",
+        "tell me about jorge's experience",
+        "tell me about jorge",
+        "tell me more about jorge",
+        "i want to know about jorge",
+        "about jorge",
+
+        "tell me about him",
+        "tell me more about him",
+        "talk about him",
+        "talk to me about him",
+        "what can you tell me about jorge",
+        "who is this jorge",
+        "describe jorge",
+    ],
+
+    responses: [
+        "Jorge Patricio Santamaría Cherrez is a Systems Engineer with a Master's degree in Software Engineering. His experience focuses on Full Stack development, virtualization, and cybersecurity, working with technologies such as React, JavaScript, Django, Java, and SQL.",
+
+        "Jorge Patricio Santamaría Cherrez is a Software Engineering professional with a background in Systems Engineering and a Master's degree in Software Engineering.",
+
+        "Jorge is a Systems Engineer with a Master's degree in Software Engineering. He specializes in Full Stack development and has knowledge of virtualization and cybersecurity. He has developed web applications, a chatbot, a chess game, and an e-commerce platform.",
+
+        "Jorge holds a degree in Systems Engineering from Universidad Indoamérica and a Master's degree in Software Engineering and Computer Systems from UNIR.",
+
+        "Jorge Patricio is a systems professional with a Master's degree in Software Engineering. His main areas include Full Stack development, cybersecurity, and virtualization, using technologies such as React, Django, JavaScript, and Java.",
+
+        "Jorge Santamaría Cherrez is a Systems Engineer with a Master's degree in Software Engineering. He has worked on different technology projects, including React applications, an Ecuador quiz, a weather application, a chatbot, a chess game, and an online store.",
+
+        "Jorge works as a Software Engineer and Full Stack Developer. He has a background in Systems Engineering and a Master's degree in Software Engineering, with experience in technologies such as React, JavaScript, Django, Java, and SQL databases.",
+
+        "Jorge Patricio Santamaría Cherrez combines his background in Systems Engineering with a Master's degree in Software Engineering. His main areas of interest are Full Stack development, virtualization, and cybersecurity, where he works with different web technologies.",
+
+        "Jorge is a Systems Engineer with a Master's degree in Software Engineering. His experience includes web application development and Full Stack projects using technologies such as React, Django, JavaScript, Java, and SQL databases.",
+
+        "Jorge Patricio has a background in Systems Engineering and a Master's degree in Software Engineering. Throughout his career, he has developed projects such as a portfolio, an Ecuador quiz, a weather app, a chatbot, a chess game, and an e-commerce platform.",
+
+        "Jorge Santamaría specializes in software development and Full Stack development. He is a Systems Engineer with a Master's degree in Software Engineering and knowledge of React, JavaScript, Django, Java, SQL, virtualization, and cybersecurity.",
+
+        "Jorge Patricio Santamaría Cherrez is a software professional with a background in Systems Engineering and a Master's degree in Software Engineering. He has developed various web projects and applications, with experience in React, Django, JavaScript, Java, and SQL.",
+    ],
+},
+        
 ];
