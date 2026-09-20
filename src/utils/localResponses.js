@@ -322,9 +322,7 @@ const COMMON_WORDS = new Set([
     "certificados",
     "certificacion",
     "certificaciones",
-    "base",
-    "bases",
-    "datos",
+    
 
     // Contacto
     "contactarlo",
