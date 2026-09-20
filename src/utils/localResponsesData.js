@@ -597,6 +597,6 @@ responses: [
 
         "Jorge Patricio Santamaría Cherrez is a software professional with a background in Systems Engineering and a Master's degree in Software Engineering. He has developed various web projects and applications, with experience in React, Django, JavaScript, Java, and SQL.",
     ],
-},
+}
         
 ];
