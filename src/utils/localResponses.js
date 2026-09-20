@@ -122,6 +122,8 @@ const VALID_NAMES = [
 const COMMON_WORDS = new Set([
 
         // English
+    "thank",
+"thanks",
     "tech",
     "who",
     "is",
