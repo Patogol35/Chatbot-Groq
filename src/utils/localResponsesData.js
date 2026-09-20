@@ -478,7 +478,7 @@ keywords: [
         'La sección "Contacto" del portfolio es el lugar indicado para comunicarte con Jorge.',
         'Si necesitas comunicarte con Jorge, entra a la sección "Contacto" y utiliza la opción que prefieras.',
     ],
-}
+},
 
     {
 category: "contact",
@@ -536,7 +536,7 @@ responses: [
     'If you need to contact Jorge, go to the "Contact" section and choose your preferred option.',
 ],
 
-    }
+    },
 
     {
     category: "identity",
@@ -597,6 +597,6 @@ responses: [
 
         "Jorge Patricio Santamaría Cherrez is a software professional with a background in Systems Engineering and a Master's degree in Software Engineering. He has developed various web projects and applications, with experience in React, Django, JavaScript, Java, and SQL.",
     ],
-}
+},
         
 ];
