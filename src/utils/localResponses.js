@@ -313,7 +313,7 @@ const COMMON_WORDS = new Set([
     "sasha",
 
     // Desarrollo
-    "hizo",
+    
     "programo",
     "desarrollo",
     "curso",
