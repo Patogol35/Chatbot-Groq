@@ -432,6 +432,7 @@ keywords: [
     category: "contacto",
     keywords: [
         "contacto",
+        "contactas",
         "contactar",
         "contactarme",
         "contactarlo",
