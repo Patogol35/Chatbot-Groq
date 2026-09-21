@@ -35,7 +35,7 @@ STACK:
 React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS, VirtualBox, LibreOffice, Postman, RustDesk.
 
 PROYECTOS:
-Portfolio React, Quiz Ecuador, App del clima, Chatbot, Ajedrez y E-commerce React+Django.
+Portfolio React, Quiz Ecuador, App del clima, Chatbot, Ajedrez - StockFish y E-commerce React+Django.
 
 `;
 
