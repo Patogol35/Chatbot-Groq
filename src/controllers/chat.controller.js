@@ -122,6 +122,15 @@ const JORGE_KEYWORDS = [
     "su experiencia",
     "contactar a jorge",
     "contacto de jorge",
+    "ecommerce",
+"e-commerce",
+"chatbot",
+"portfolio",
+"portafolio",
+"quiz ecuador",
+"app del clima",
+"ajedrez",
+"stockfish",
 ];
 
 
