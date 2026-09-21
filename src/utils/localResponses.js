@@ -384,8 +384,7 @@ const COMMON_WORDS = new Set([
     "az",
     "az900",
     "fundamentals",
-    "cloud",
-    "nube",
+    
 
     // MCP / Anthropic / Claude
     "mcp",
