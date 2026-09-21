@@ -21,7 +21,7 @@ const JORGE_INFO = `
 Jorge Patricio Santamaría Cherrez.
 Estudios: Ingeniería en Sistemas (Universidad Indoamérica, Ecuador, 9/10); Máster en Ingeniería de Software (UNIR, España, 8.68/10).
 Certificaciones: MCP y Claude API (Anthropic, 2026); Fundamentals of AI (IBM, 2025); Linux (Udemy, 2024); AZ-900 (UNIR, 2023).
-Stack: React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, VirtualBox, LibreOffice, Postman.
+Stack: Frontend: React, JavaScript; Backend: Django, Java; BD: PostgreSQL, MySQL; Cloud: Render, Vercel; Herramientas: VirtualBox, LibreOffice, Postman.
 Proyectos: Quiz Ecuador (React); App del clima (React); Chatbot (Node.js, Express, Groq); Ajedrez (React, Stockfish); E-commerce (React, Django, PostgreSQL).
 `;
 
