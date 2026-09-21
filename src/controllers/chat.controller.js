@@ -31,8 +31,13 @@ CERTIFICACIONES:
 - Linux, Udemy, 2024.
 - AZ-900, UNIR, 2023.
 
+
 STACK:
-React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS, VirtualBox, LibreOffice, Postman, RustDesk.
+Frontend: React, JavaScript.
+Backend: Django, Java.
+BD: PostgreSQL, MySQL.
+Cloud: Render, Vercel.
+Herramientas: VirtualBox, LibreOffice, Postman.
 
 PROYECTOS:
 - Portfolio: React.
@@ -40,7 +45,7 @@ PROYECTOS:
 - App del clima: React.
 - Chatbot: Node.js, Express y Groq.
 - Ajedrez: React y Stockfish.
-- E-commerce: React, Django REST, PostgreSQL y PayPal.
+- E-commerce: React, Django, PostgreSQL.
 
 `;
 
