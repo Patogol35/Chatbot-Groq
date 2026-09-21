@@ -377,25 +377,6 @@ const COMMON_WORDS = new Set([
     "llamar",
     "cuentame",
     "saber",
-
-    // Microsoft / Azure
-    "microsoft",
-    "azure",
-    "az",
-    "az900",
-    "fundamentals",
-    
-
-    // MCP / Anthropic / Claude
-    "mcp",
-    "anthropic",
-    "claude",
-
-    // IBM
-    "ibm",
-
-    // Otros
-    "linux",
     "utiliza",
     "experiencia",
 ]);
