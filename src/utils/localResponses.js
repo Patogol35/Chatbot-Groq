@@ -321,6 +321,7 @@ const COMMON_WORDS = new Set([
     "estudios",
 
     // Conversación
+    "haces",
     "hola",
     "buenas",
     "buenos",
