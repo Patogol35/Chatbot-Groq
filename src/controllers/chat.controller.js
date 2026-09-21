@@ -230,10 +230,16 @@ if (localResponse) {
         |--------------------------------------------------------------------------
         */
 
-        const aboutJorge = isJorgeQuestion(userMessage);
-
         const cleanHistory = sanitizeHistory(history);
 
+const previousUserMessages = cleanHistory
+    .filter((item) => item.role === "user")
+    .map((item) => item.content)
+    .join(" ");
+
+const aboutJorge =
+    isJorgeQuestion(userMessage) ||
+    isJorgeQuestion(previousUserMessages);
         /*
         |--------------------------------------------------------------------------
         | ELEGIR PROMPT
