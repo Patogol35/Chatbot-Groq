@@ -21,16 +21,15 @@ const JORGE_INFO = `
 Jorge Patricio Santamaría Cherrez.
 
 ESTUDIOS:
-- Ingeniería en Sistemas, Universidad Indoamérica, Ecuador — 9/10.
-- Máster en Ingeniería de Software, UNIR, España — 8.68/10.
+Ingeniería en Sistemas — Universidad Indoamérica, Ecuador — 9/10.
+Máster en Ingeniería de Software — UNIR, España — 8.68/10.
 
 CERTIFICACIONES:
-- Model Context Protocol, Anthropic, 2026.
-- Claude API, Anthropic, 2026.
-- Fundamentals of AI, IBM, 2025.
-- Linux, Udemy, 2024.
-- AZ-900, UNIR, 2023.
-
+MCP — Anthropic, 2026.
+Claude API — Anthropic, 2026.
+Fundamentals of AI — IBM, 2025.
+Linux — Udemy, 2024.
+AZ-900 — UNIR, 2023.
 
 STACK:
 Frontend: React, JavaScript.
@@ -40,13 +39,11 @@ Cloud: Render, Vercel.
 Herramientas: VirtualBox, LibreOffice, Postman.
 
 PROYECTOS:
-
-- Quiz Ecuador: React.
-- App del clima: React.
-- Chatbot: Node.js, Express y Groq.
-- Ajedrez: React y Stockfish.
-- E-commerce: React, Django, PostgreSQL.
-
+Quiz Ecuador: React.
+App del clima: React.
+Chatbot: Node.js, Express, Groq.
+Ajedrez: React, Stockfish.
+E-commerce: React, Django, PostgreSQL.
 `;
 
 
