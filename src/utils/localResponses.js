@@ -334,6 +334,7 @@ const COMMON_WORDS = new Set([
     "comunicar",
     "quiero",
     "hablar",
+    "contactas",
     "llamar",
     "cuentame",
     "saber",
