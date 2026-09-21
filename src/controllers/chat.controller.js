@@ -120,6 +120,7 @@ const JORGE_KEYWORDS = [
     "contactar a jorge",
     "contacto de jorge",
     "ecommerce",
+    "react",
 
 ];
 
