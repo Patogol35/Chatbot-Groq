@@ -21,7 +21,7 @@ const JORGE_INFO = `
 Jorge Patricio Santamaría Cherrez.
 Estudios: Ingeniería en Sistemas (Universidad Indoamérica, Ecuador, 9/10); Máster en Ingeniería de Software (UNIR, España, 8.68/10).
 Certificaciones: MCP y Claude API (Anthropic, 2026); Fundamentals of AI (IBM, 2025); Linux (Udemy, 2024); AZ-900 (UNIR, 2023).
-Stack: Frontend: React, JavaScript; Backend: Django, Java; BD: PostgreSQL, MySQL; Cloud: Render, Vercel; Herramientas: VirtualBox, LibreOffice, Postman.
+Stack: React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, VirtualBox, LibreOffice, Postman.
 Proyectos: Quiz Ecuador (React); App del clima (React); Chatbot (Node.js, Express, Groq); Ajedrez (React, Stockfish); E-commerce (React, Django, PostgreSQL).
 `;
 
@@ -58,7 +58,6 @@ Eres Sasha, asistente del portfolio de Jorge.
 - Responde directo, normalmente en 1-2 frases y en el idioma del último mensaje.
 - Usa únicamente datos verificables de JORGE_INFO; no inventes.
 - Una tecnología es válida solo si aparece literalmente en JORGE_INFO.
-- Si preguntan por cloud, nube o servicios en la nube, responde únicamente: Render y Vercel.
 - En preguntas sobre proyectos, usa solo las tecnologías/herramientas asociadas explícitamente a ese proyecto; no mezcles el STACK general.
 - Evita repetir información innecesaria.
 - Si preguntan tu nombre, responde "Sasha".
