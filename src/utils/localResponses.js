@@ -242,6 +242,7 @@ const COMMON_WORDS = new Set([
     "mi",
     "mis",
     "necesito",
+    "hizo",
     "nombre",
     "no",
     "o",
