@@ -484,6 +484,48 @@ export const getLocalResponse = (message) => {
     );
 
     /*
+|--------------------------------------------------------------------------
+| IDENTIDAD DE SASHA
+|--------------------------------------------------------------------------
+*/
+
+const isSashaIdentityQuestion = [
+    "eres sasha",
+    "eres sasha o no",
+    "sasha eres tu",
+    "sasha eres tu o no",
+    "tu eres sasha",
+    "tu eres sasha o no",
+    "eres tu sasha",
+].some((phrase) =>
+    normalizedMessage.includes(phrase)
+);
+
+if (isSashaIdentityQuestion) {
+
+    const sashaIdentityResponses = [
+        "Sí 😊, soy Sasha, la asistente virtual del portfolio de Jorge.",
+        "¡Sí! Soy Sasha 👋, la asistente virtual del portfolio de Jorge.",
+        "Sí, soy Sasha. Estoy aquí para ayudarte a conocer el portfolio de Jorge.",
+        "¡Claro que sí! 😊 Soy Sasha, la asistente virtual de Jorge.",
+        "Sí 😄, soy Sasha. Puedo ayudarte con información sobre Jorge y sus proyectos.",
+        "¡Exactamente! 👋 Soy Sasha, la asistente virtual creada para el portfolio de Jorge.",
+        "Sí, soy Sasha 😊. Estoy aquí para responder tus preguntas sobre Jorge.",
+        "¡Sí! Soy Sasha 🤖, y estoy aquí para ayudarte a descubrir el trabajo de Jorge.",
+        "Correcto 😄, soy Sasha, la asistente virtual del portfolio de Jorge.",
+        "Así es 😊. Mi nombre es Sasha y mi función es ayudarte a conocer mejor el portfolio de Jorge.",
+    ];
+
+    const randomIndex =
+        Math.floor(
+            Math.random() *
+            sashaIdentityResponses.length
+        );
+
+    return sashaIdentityResponses[randomIndex];
+}
+
+    /*
     |--------------------------------------------------------------------------
     | PREGUNTAS CONCEPTUALES
     |--------------------------------------------------------------------------
