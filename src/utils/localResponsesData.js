@@ -339,21 +339,21 @@ keywords: [
 
     "Su stack tecnológico combina React y JavaScript para el desarrollo frontend, Django y Java para backend, PostgreSQL y MySQL para bases de datos, además de herramientas como Postman, VirtualBox y LibreOffice.",
 
-    "Entre las principales tecnologías y herramientas de Jorge se encuentran React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS, VirtualBox, LibreOffice y Postman.",
+    "Entre las principales tecnologías y herramientas de Jorge se encuentran React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, VirtualBox, LibreOffice y Postman.",
 
     "Jorge tiene experiencia en desarrollo Full Stack utilizando React y JavaScript en frontend, Django y Java en backend, además de PostgreSQL y MySQL. También utiliza Postman para trabajar con APIs y herramientas como VirtualBox y LibreOffice.",
 
     "Su perfil técnico abarca desarrollo web Full Stack, trabajando con React, JavaScript, Django y Java, junto con bases de datos como PostgreSQL y MySQL. También utiliza Postman, VirtualBox y LibreOffice.",
 
-    "Jorge utiliza tecnologías y herramientas para desarrollar, probar y administrar aplicaciones, entre ellas React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox y LibreOffice, además de servicios como Render, Vercel y AWS.",
+    "Jorge utiliza tecnologías y herramientas para desarrollar, probar y administrar aplicaciones, entre ellas React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox y LibreOffice, además de servicios como Render y Vercel.",
 
     "En frontend, Jorge trabaja principalmente con React y JavaScript; en backend utiliza Django y Java, y tiene experiencia con PostgreSQL y MySQL. Para pruebas y desarrollo utiliza Postman, mientras que también trabaja con VirtualBox y LibreOffice.",
 
-    "Su experiencia tecnológica incluye desarrollo frontend, backend, bases de datos, pruebas de APIs, virtualización y soporte remoto mediante React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, LibreOffice, Render, Vercel y AWS.",
+    "Su experiencia tecnológica incluye desarrollo frontend, backend, bases de datos, pruebas de APIs, virtualización y soporte remoto mediante React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, LibreOffice, Render y Vercel.",
 
-    "Jorge cuenta con un stack orientado al desarrollo de aplicaciones web, combinando React, JavaScript, Django y Java con PostgreSQL y MySQL. También utiliza Postman, VirtualBox y LibreOffice, además de plataformas de despliegue como Render, Vercel y AWS.",
+    "Jorge cuenta con un stack orientado al desarrollo de aplicaciones web, combinando React, JavaScript, Django y Java con PostgreSQL y MySQL. También utiliza Postman, VirtualBox y LibreOffice, además de plataformas de despliegue como Render y Vercel.",
 
-    "Las principales tecnologías y herramientas que forman parte del perfil de Jorge son React, JavaScript, Django, Java, PostgreSQL y MySQL. También trabaja con Postman, VirtualBox, LibreOffice y servicios de despliegue y nube como Render, Vercel y AWS."
+    "Las principales tecnologías y herramientas que forman parte del perfil de Jorge son React, JavaScript, Django, Java, PostgreSQL y MySQL. También trabaja con Postman, VirtualBox, LibreOffice y servicios de despliegue y nube como Render y Vercel."
 ],
     },
 
@@ -632,25 +632,25 @@ responses: [
     ],
 
     responses: [
-        "Jorge mainly works with React, JavaScript, Django, Java, PostgreSQL, and MySQL. He also uses Render, Vercel, AWS, VirtualBox, RustDesk, and Postman.",
+        "Jorge mainly works with React, JavaScript, Django, Java, PostgreSQL, and MySQL. He also uses Render, Vercel, VirtualBox, LibreOffice, and Postman.",
 
-        "His technology stack combines React and JavaScript for frontend development, Django and Java for backend development, PostgreSQL and MySQL for databases, along with tools such as Postman, VirtualBox, and RustDesk.",
+        "His technology stack combines React and JavaScript for frontend development, Django and Java for backend development, PostgreSQL and MySQL for databases, along with tools such as Postman, VirtualBox, and LibreOffice.",
 
-        "Among Jorge's main technologies and tools are React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, AWS, VirtualBox, RustDesk, and Postman.",
+        "Among Jorge's main technologies and tools are React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, VirtualBox, LibreOffice, and Postman.",
 
-        "Jorge has Full Stack development experience using React and JavaScript for frontend, Django and Java for backend, as well as PostgreSQL and MySQL. He also uses Postman for API testing and tools such as VirtualBox and RustDesk.",
+        "Jorge has Full Stack development experience using React and JavaScript for frontend, Django and Java for backend, as well as PostgreSQL and MySQL. He also uses Postman for API testing and tools such as VirtualBox and LibreOffice.",
 
-        "His technical profile covers Full Stack web development, working with React, JavaScript, Django, and Java, together with databases such as PostgreSQL and MySQL. He also uses Postman, VirtualBox, and RustDesk.",
+        "His technical profile covers Full Stack web development, working with React, JavaScript, Django, and Java, together with databases such as PostgreSQL and MySQL. He also uses Postman, VirtualBox, and LibreOffice.",
 
-        "Jorge uses technologies and tools to develop, test, and manage applications, including React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, and RustDesk, as well as services such as Render, Vercel, and AWS.",
+        "Jorge uses technologies and tools to develop, test, and manage applications, including React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, and LibreOffice, as well as services such as Render, and Vercel.",
 
-        "On the frontend, Jorge mainly works with React and JavaScript; on the backend, he uses Django and Java, and he has experience with PostgreSQL and MySQL. For testing and development, he uses Postman, while also working with VirtualBox and RustDesk.",
+        "On the frontend, Jorge mainly works with React and JavaScript; on the backend, he uses Django and Java, and he has experience with PostgreSQL and MySQL. For testing and development, he uses Postman, while also working with VirtualBox and LibreOffice.",
 
-        "His technology experience includes frontend development, backend development, databases, API testing, virtualization, and remote support using React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, RustDesk, Render, Vercel, and AWS.",
+        "His technology experience includes frontend development, backend development, databases, API testing, virtualization, and remote support using React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox, LibreOffice, Render, and Vercel.",
 
-        "Jorge has a technology stack focused on web application development, combining React, JavaScript, Django, and Java with PostgreSQL and MySQL. He also uses Postman, VirtualBox, and RustDesk, as well as deployment platforms such as Render, Vercel, and AWS.",
+        "Jorge has a technology stack focused on web application development, combining React, JavaScript, Django, and Java with PostgreSQL and MySQL. He also uses Postman, VirtualBox, and LibreOffice, as well as deployment platforms such as Render, and Vercel.",
 
-        "The main technologies and tools that are part of Jorge's profile include React, JavaScript, Django, Java, PostgreSQL, and MySQL. He also works with Postman, VirtualBox, RustDesk, and cloud and deployment services such as Render, Vercel, and AWS."
+        "The main technologies and tools that are part of Jorge's profile include React, JavaScript, Django, Java, PostgreSQL, and MySQL. He also works with Postman, VirtualBox, LibreOffice, and cloud and deployment services such as Render, and Vercel."
     ],
 },
 
