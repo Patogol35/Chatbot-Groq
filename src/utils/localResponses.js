@@ -379,6 +379,7 @@ const COMMON_WORDS = new Set([
     "saber",
     "utiliza",
     "experiencia",
+    "conectar",
 ]);
 
 /*
