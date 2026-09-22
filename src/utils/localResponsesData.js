@@ -586,30 +586,30 @@ responses: [
     ],
 
     responses: [
-        "Jorge Patricio Santamaría Cherrez is a Systems Engineer with a Master's degree in Software Engineering. His experience focuses on Full Stack development, virtualization, and cybersecurity, working with technologies such as React, JavaScript, Django, Java, and SQL.",
+    "Jorge Patricio Santamaría Cherrez is a Systems Engineer with a Master's degree in Software Engineering and Computer Systems. His experience focuses mainly on Full Stack development, working with React, JavaScript, Django, Java, PostgreSQL, and MySQL.",
 
-        "Jorge Patricio Santamaría Cherrez is a Software Engineering professional with a background in Systems Engineering and a Master's degree in Software Engineering.",
+    "Jorge Patricio Santamaría Cherrez is a Software Engineering professional with a background in Systems Engineering and a Master's degree in Software Engineering and Computer Systems.",
 
-        "Jorge is a Systems Engineer with a Master's degree in Software Engineering. He specializes in Full Stack development and has knowledge of virtualization and cybersecurity. He has developed web applications, a chatbot, a chess game, and an e-commerce platform.",
+    "Jorge is a Systems Engineer with a Master's degree in Software Engineering and Computer Systems. He specializes in Full Stack development and web application development, using technologies such as React, JavaScript, Django, and Java.",
 
-        "Jorge holds a degree in Systems Engineering from Universidad Indoamérica and a Master's degree in Software Engineering and Computer Systems from UNIR.",
+    "Jorge holds a degree in Systems Engineering from Universidad Indoamérica and a Master's degree in Software Engineering and Computer Systems from UNIR.",
 
-        "Jorge Patricio is a systems professional with a Master's degree in Software Engineering. His main areas include Full Stack development, cybersecurity, and virtualization, using technologies such as React, Django, JavaScript, and Java.",
+    "Jorge Patricio is a systems professional focused on Full Stack development. He works with technologies such as React, JavaScript, Django, and Java, as well as databases such as PostgreSQL and MySQL.",
 
-        "Jorge Santamaría Cherrez is a Systems Engineer with a Master's degree in Software Engineering. He has worked on different technology projects, including React applications, an Ecuador quiz, a weather application, a chatbot, a chess game, and an online store.",
+    "Jorge Santamaría Cherrez is a Systems Engineer with a Master's degree in Software Engineering. He has worked on different technology projects, including React applications, an Ecuador quiz, a weather application, a chatbot, a chess game, and an online store.",
 
-        "Jorge works as a Software Engineer and Full Stack Developer. He has a background in Systems Engineering and a Master's degree in Software Engineering, with experience in technologies such as React, JavaScript, Django, Java, and SQL databases.",
+    "Jorge works as a Software Engineer and Full Stack Developer. He has a background in Systems Engineering and a Master's degree in Software Engineering, with experience in React, JavaScript, Django, Java, PostgreSQL, and MySQL.",
 
-        "Jorge Patricio Santamaría Cherrez combines his background in Systems Engineering with a Master's degree in Software Engineering. His main areas of interest are Full Stack development, virtualization, and cybersecurity, where he works with different web technologies.",
+    "Jorge Patricio Santamaría Cherrez combines his background in Systems Engineering with a Master's degree in Software Engineering. His main areas include Full Stack web development, database management, virtualization, and application deployment.",
 
-        "Jorge is a Systems Engineer with a Master's degree in Software Engineering. His experience includes web application development and Full Stack projects using technologies such as React, Django, JavaScript, Java, and SQL databases.",
+    "Jorge is a Systems Engineer with a Master's degree in Software Engineering. His experience includes web application development and Full Stack projects using React, Django, JavaScript, Java, and SQL databases such as PostgreSQL and MySQL.",
 
-        "Jorge Patricio has a background in Systems Engineering and a Master's degree in Software Engineering. Throughout his career, he has developed projects such as a portfolio, an Ecuador quiz, a weather app, a chatbot, a chess game, and an e-commerce platform.",
+    "Jorge Patricio has a background in Systems Engineering and a Master's degree in Software Engineering. Throughout his career, he has developed projects such as a portfolio, an Ecuador quiz, a weather app, a chatbot, a chess game, and an e-commerce platform.",
 
-        "Jorge Santamaría specializes in software development and Full Stack development. He is a Systems Engineer with a Master's degree in Software Engineering and knowledge of React, JavaScript, Django, Java, SQL, virtualization, and cybersecurity.",
+    "Jorge Santamaría specializes in software development and Full Stack development. He is a Systems Engineer with a Master's degree in Software Engineering and knowledge of React, JavaScript, Django, Java, PostgreSQL, MySQL, virtualization, and development tools.",
 
-        "Jorge Patricio Santamaría Cherrez is a software professional with a background in Systems Engineering and a Master's degree in Software Engineering. He has developed various web projects and applications, with experience in React, Django, JavaScript, Java, and SQL.",
-    ],
+    "Jorge Patricio Santamaría Cherrez is a software professional with a background in Systems Engineering and a Master's degree in Software Engineering. He has developed various web projects and applications, working with React, Django, JavaScript, Java, PostgreSQL, and MySQL."
+],       
 },
 
     {
