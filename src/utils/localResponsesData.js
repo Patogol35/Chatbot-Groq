@@ -40,19 +40,30 @@ keywords: [
     "cuentame",
 ],
         responses: [
-            "Jorge Patricio Santamaría Cherrez es ingeniero en sistemas y tiene un máster en ingeniería de software. Su experiencia se enfoca en desarrollo Full Stack, virtualización y ciberseguridad, trabajando con React, JavaScript, Django, Java y SQL.",
-            "Jorge Patricio Santamaría Cherrez es un profesional de Ingeniería de Software, con formación en Ingeniería en Sistemas y un Máster en esta área.",
-            "Jorge es Ingeniero en Sistemas y cuenta con un Máster en Ingeniería de Software. Se especializa en desarrollo Full Stack, además de tener conocimientos en virtualización y ciberseguridad. Ha creado aplicaciones web, un chatbot, un juego de ajedrez y un e-commerce.",
-            "Jorge es Ingeniero en Sistemas por la Universidad Indoamérica y Máster en Ingeniería de Software y Sistemas Informáticos por la UNIR.",
-            "Jorge Patricio es un profesional de sistemas con formación de máster en ingeniería de software. Entre sus principales áreas están el desarrollo Full Stack, la ciberseguridad y la virtualización, utilizando tecnologías como React, Django, JavaScript y Java.",
-            "Jorge Santamaría Cherrez es Ingeniero en Sistemas y Máster en Ingeniería de Software. Ha trabajado en diferentes proyectos tecnológicos, incluyendo aplicaciones React, un quiz sobre Ecuador, una aplicación del clima, un chatbot, ajedrez y una tienda online.",
-            "Jorge se desempeña como Ingeniero de Software y Desarrollador Full Stack. Tiene formación en Ingeniería de Sistemas y una maestría en Ingeniería de Software, con experiencia en tecnologías como React, JavaScript, Django, Java y bases de datos SQL.",
-            "Jorge Patricio Santamaría Cherrez combina su formación en Ingeniería de Sistemas con un máster en Ingeniería de Software. Sus principales áreas de interés son el desarrollo Full Stack, la virtualización y la ciberseguridad, donde trabaja con diferentes tecnologías web.",
-            "Jorge es un Ingeniero en Sistemas con Máster en Ingeniería de Software. Dentro de su experiencia destacan el desarrollo de aplicaciones web y proyectos Full Stack, utilizando herramientas como React, Django, JavaScript, Java y bases de datos SQL.",
-            "Jorge Patricio tiene formación como Ingeniero en Sistemas y Máster en Ingeniería de Software. En su trayectoria ha desarrollado proyectos como un portfolio, un quiz sobre Ecuador, una app del clima, un chatbot, un juego de ajedrez y un e-commerce.",
-            "Jorge Santamaría se especializa en desarrollo de software y Full Stack. Es Ingeniero en Sistemas y tiene un Máster en Ingeniería de Software, con conocimientos en React, JavaScript, Django, Java, SQL, virtualización y ciberseguridad.",
-"Jorge Patricio Santamaría Cherrez es un profesional de software con formación en Ingeniería de Sistemas y una maestría en Ingeniería de Software. Ha desarrollado diversos proyectos web y aplicaciones, destacando su trabajo con React, Django, JavaScript, Java y SQL.",
-        ],
+    "Jorge Patricio Santamaría Cherrez es Ingeniero en Sistemas y tiene un Máster en Ingeniería de Software y Sistemas Informáticos. Su experiencia se enfoca principalmente en desarrollo Full Stack, trabajando con React, JavaScript, Django, Java, PostgreSQL y MySQL.",
+
+    "Jorge Patricio Santamaría Cherrez es un profesional de Ingeniería de Software, con formación en Ingeniería en Sistemas y un Máster en Ingeniería de Software y Sistemas Informáticos.",
+
+    "Jorge es Ingeniero en Sistemas y cuenta con un Máster en Ingeniería de Software y Sistemas Informáticos. Se especializa en desarrollo Full Stack y desarrollo de aplicaciones web, utilizando tecnologías como React, JavaScript, Django y Java.",
+
+    "Jorge es Ingeniero en Sistemas por la Universidad Indoamérica y Máster en Ingeniería de Software y Sistemas Informáticos por la UNIR.",
+
+    "Jorge Patricio es un profesional de sistemas orientado al desarrollo Full Stack. Trabaja con tecnologías como React, JavaScript, Django y Java, además de bases de datos como PostgreSQL y MySQL.",
+
+    "Jorge Santamaría Cherrez es Ingeniero en Sistemas y Máster en Ingeniería de Software. Ha trabajado en diferentes proyectos tecnológicos, incluyendo aplicaciones React, un quiz sobre Ecuador, una aplicación del clima, un chatbot, ajedrez y una tienda online.",
+
+    "Jorge se desempeña como Ingeniero de Software y Desarrollador Full Stack. Tiene formación en Ingeniería de Sistemas y una maestría en Ingeniería de Software, con experiencia en React, JavaScript, Django, Java, PostgreSQL y MySQL.",
+
+    "Jorge Patricio Santamaría Cherrez combina su formación en Ingeniería de Sistemas con un Máster en Ingeniería de Software. Sus principales áreas son el desarrollo web Full Stack, el manejo de bases de datos, la virtualización y el despliegue de aplicaciones.",
+
+    "Jorge es un Ingeniero en Sistemas con Máster en Ingeniería de Software. Dentro de su experiencia destacan el desarrollo de aplicaciones web y proyectos Full Stack, utilizando React, Django, JavaScript, Java y bases de datos SQL.",
+
+    "Jorge Patricio tiene formación como Ingeniero en Sistemas y Máster en Ingeniería de Software. En su trayectoria ha desarrollado proyectos como un portafolio, un quiz sobre Ecuador, una app del clima, un chatbot, un juego de ajedrez y un e-commerce.",
+
+    "Jorge Santamaría se especializa en desarrollo de software y Full Stack. Es Ingeniero en Sistemas y tiene un Máster en Ingeniería de Software, con conocimientos en React, JavaScript, Django, Java, PostgreSQL, MySQL, virtualización y herramientas de desarrollo.",
+
+    "Jorge Patricio Santamaría Cherrez es un profesional de software con formación en Ingeniería de Sistemas y una maestría en Ingeniería de Software. Ha desarrollado diversos proyectos web y aplicaciones, trabajando con React, Django, JavaScript, Java, PostgreSQL y MySQL."
+],
     },
 
             {
