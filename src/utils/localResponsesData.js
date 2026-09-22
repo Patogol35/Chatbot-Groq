@@ -1044,5 +1044,27 @@ responses: [
         "Soy Sasha, la asistente virtual de Jorge, creada para responder preguntas sobre su perfil, estudios, proyectos y experiencia.",
     ],
 },
+    {
+    category: "sasha_identidad",
+    keywords: [
+        "eres sasha",
+        "eres sasha o no",
+        "sasha eres tu",
+        "sasha eres tu o no",
+        "tu eres sasha",
+        "tu eres sasha o no",
+        "eres tu sasha",
+    ],
+    responses: [
+        "Sí 😊, soy Sasha, la asistente virtual del portfolio de Jorge.",
+        "¡Sí! Soy Sasha 👋, la asistente virtual del portfolio de Jorge.",
+        "Sí, soy Sasha. Estoy aquí para ayudarte a conocer el portfolio de Jorge.",
+        "¡Claro que sí! 😊 Soy Sasha, la asistente virtual de Jorge.",
+        "Sí 😄, soy Sasha. Puedo ayudarte con información sobre Jorge y sus proyectos.",
+        "¡Exactamente! 👋 Soy Sasha, la asistente virtual del portfolio de Jorge.",
+        "Sí 😊. Mi nombre es Sasha y estoy aquí para ayudarte.",
+        "¡Sí! 🤖 Soy Sasha y puedo responder tus preguntas sobre Jorge.",
+    ],
+},
     
 ];
