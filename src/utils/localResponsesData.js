@@ -465,6 +465,7 @@ keywords: [
         "necesito hablar con jorge",
         "contactame con el",
         "contactame",
+        "conectar",
         
     ],
     responses: [
