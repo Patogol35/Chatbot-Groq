@@ -332,7 +332,7 @@ keywords: [
 
     "Jorge tiene experiencia en desarrollo Full Stack utilizando React y JavaScript en frontend, Django y Java en backend, además de PostgreSQL y MySQL. También utiliza Postman para trabajar con APIs y herramientas como VirtualBox y LibreOffice.",
 
-    "Su perfil técnico abarca desarrollo web Full Stack, trabajando con React, JavaScript, Django y Java, junto con bases de datos como PostgreSQL y MySQL. También utiliza Postman, VirtualBox y RustDesk.",
+    "Su perfil técnico abarca desarrollo web Full Stack, trabajando con React, JavaScript, Django y Java, junto con bases de datos como PostgreSQL y MySQL. También utiliza Postman, VirtualBox y LibreOffice.",
 
     "Jorge utiliza tecnologías y herramientas para desarrollar, probar y administrar aplicaciones, entre ellas React, JavaScript, Django, Java, PostgreSQL, MySQL, Postman, VirtualBox y LibreOffice, además de servicios como Render, Vercel y AWS.",
 
