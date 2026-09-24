@@ -231,28 +231,18 @@ const aboutJorge =
         |--------------------------------------------------------------------------
         */
 
-        const messages = aboutJorge
-    ? [
-        {
-            role: "system",
-            content: systemPrompt,
-        },
-        {
-            role: "user",
-            content: userMessage,
-        },
-    ]
-    : [
-        {
-            role: "system",
-            content: systemPrompt,
-        },
-        ...cleanHistory,
-        {
-            role: "user",
-            content: userMessage,
-        },
-    ];
+        const messages = [
+            {
+                role: "system",
+                content: systemPrompt,
+            },
+            ...cleanHistory,
+            {
+                role: "user",
+                content: userMessage,
+            },
+        ];
+
         /*
         |--------------------------------------------------------------------------
         | GROQ
