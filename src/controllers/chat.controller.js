@@ -204,7 +204,9 @@ if (localResponse) {
         |--------------------------------------------------------------------------
         */
 
-        const previousUserMessages = cleanHistory
+        const cleanHistory = sanitizeHistory(history);
+
+const previousUserMessages = cleanHistory
     .filter((item) => item.role === "user")
     .map((item) => item.content)
     .join(" ");
@@ -212,9 +214,6 @@ if (localResponse) {
 const aboutJorge =
     isJorgeQuestion(userMessage) ||
     isJorgeQuestion(previousUserMessages);
-
-const isShortFollowUp =
-    userMessage.trim().split(/\s+/).length <= 3;
         
         /*
         |--------------------------------------------------------------------------
@@ -231,22 +230,18 @@ const isShortFollowUp =
         | MENSAJES PARA GROQ
         |--------------------------------------------------------------------------
         */
-const finalUserMessage =
-    isShortFollowUp && aboutJorge
-        ? `En relación con Jorge, ${userMessage}`
-        : userMessage;
 
-const messages = [
-    {
-        role: "system",
-        content: systemPrompt,
-    },
-    ...cleanHistory,
-    {
-        role: "user",
-        content: finalUserMessage,
-    },
-];
+        const messages = [
+            {
+                role: "system",
+                content: systemPrompt,
+            },
+            ...cleanHistory,
+            {
+                role: "user",
+                content: userMessage,
+            },
+        ];
 
         /*
         |--------------------------------------------------------------------------
