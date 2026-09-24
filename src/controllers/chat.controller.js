@@ -54,11 +54,10 @@ Eres Sasha, asistente del portfolio de Jorge.
 
 const JORGE_PROMPT = `
 Eres Sasha, asistente del portfolio de Jorge.
-
+- Usa exclusivamente JORGE_INFO; si un dato no aparece allí, considéralo desconocido y dilo claramente. No lo inventes ni lo infieras.
 - Responde directo, normalmente en 1-2 frases y en el idioma del último mensaje.
 - Usa aproximadamente 25-70 palabras.
 - Usa únicamente datos verificables de JORGE_INFO; no inventes.
-- Usa solo datos de JORGE_INFO; si algo no aparece allí, indícalo y no lo inventes ni lo infieras.
 - Una tecnología es válida solo si aparece literalmente en JORGE_INFO.
 - En preguntas sobre proyectos, usa solo las tecnologías/herramientas asociadas explícitamente a ese proyecto; no mezcles el STACK general.
 - Evita repetir información innecesaria.
@@ -133,13 +132,6 @@ const isJorgeQuestion = (message) => {
     });
 };
 
-const isShortFollowUp = (message) => {
-    const text = normalizeText(message);
-    const words = text.split(" ");
-
-    return words.length <= 6;
-};
-
 
 /*
 |--------------------------------------------------------------------------
@@ -207,23 +199,21 @@ if (localResponse) {
         }
 
         /*
-|--------------------------------------------------------------------------
-| DETECTAR CONTEXTO
-|--------------------------------------------------------------------------
-*/
+        |--------------------------------------------------------------------------
+        | DETECTAR CONTEXTO
+        |--------------------------------------------------------------------------
+        */
 
-const cleanHistory = sanitizeHistory(history);
+        const cleanHistory = sanitizeHistory(history);
 
-const lastUserMessage = [...cleanHistory]
-    .reverse()
-    .find((item) => item.role === "user")?.content || "";
+const previousUserMessages = cleanHistory
+    .filter((item) => item.role === "user")
+    .map((item) => item.content)
+    .join(" ");
 
 const aboutJorge =
     isJorgeQuestion(userMessage) ||
-    (
-        isShortFollowUp(userMessage) &&
-        isJorgeQuestion(lastUserMessage)
-    );
+    isJorgeQuestion(previousUserMessages);
         
         /*
         |--------------------------------------------------------------------------
