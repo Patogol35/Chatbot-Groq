@@ -58,11 +58,7 @@ Eres Sasha, asistente del portfolio de Jorge.
 - Responde directo, normalmente en 1-2 frases y en el idioma del último mensaje.
 - Usa aproximadamente 25-70 palabras.
 - Usa únicamente datos verificables de JORGE_INFO; no inventes.
-- Para preguntas sobre tecnologías de Jorge, revisa literalmente el campo "Stack" de JORGE_INFO.
-- Si la tecnología aparece en Stack, responde que SÍ tiene experiencia con ella.
-- Si la tecnología no aparece en Stack, responde que NO figura entre las tecnologías registradas de Jorge.
-- Nunca contradigas JORGE_INFO.
-- Nunca uses el historial para cambiar o contradecir los datos de JORGE_INFO.
+- Una tecnología es válida solo si aparece literalmente en JORGE_INFO.
 - En preguntas sobre proyectos, usa solo las tecnologías/herramientas asociadas explícitamente a ese proyecto; no mezcles el STACK general.
 - Evita repetir información innecesaria.
 - Eres Sasha, asistente virtual del portfolio de Jorge.
@@ -235,28 +231,18 @@ const aboutJorge =
         |--------------------------------------------------------------------------
         */
 
-        const messages = aboutJorge
-    ? [
-        {
-            role: "system",
-            content: systemPrompt,
-        },
-        {
-            role: "user",
-            content: userMessage,
-        },
-    ]
-    : [
-        {
-            role: "system",
-            content: systemPrompt,
-        },
-        ...cleanHistory,
-        {
-            role: "user",
-            content: userMessage,
-        },
-    ];
+        const messages = [
+            {
+                role: "system",
+                content: systemPrompt,
+            },
+            ...cleanHistory,
+            {
+                role: "user",
+                content: userMessage,
+            },
+        ];
+
         /*
         |--------------------------------------------------------------------------
         | GROQ
