@@ -215,6 +215,15 @@ const previousUserMessages = cleanHistory
 const aboutJorge =
     isJorgeQuestion(userMessage) ||
     isJorgeQuestion(previousUserMessages);
+
+        const lastUserMessage = cleanHistory
+    .filter((item) => item.role === "user")
+    .at(-1);
+
+const isFollowUp =
+    lastUserMessage &&
+    !isJorgeQuestion(userMessage) &&
+    aboutJorge;
         
         /*
         |--------------------------------------------------------------------------
@@ -232,18 +241,31 @@ const aboutJorge =
         |--------------------------------------------------------------------------
         */
 
-        const messages = [
-            {
-                role: "system",
-                content: systemPrompt,
-            },
-            ...cleanHistory,
-            {
-                role: "user",
-                content: userMessage,
-            },
-        ];
+        /*
+|--------------------------------------------------------------------------
+| MENSAJES PARA GROQ
+|--------------------------------------------------------------------------
+*/
 
+const finalUserMessage = isFollowUp
+    ? `La pregunta anterior del usuario fue: "${lastUserMessage.content}"
+
+El usuario ahora pregunta: "${userMessage}"
+
+Responde entendiendo que la pregunta actual continúa el contexto anterior.`
+    : userMessage;
+
+const messages = [
+    {
+        role: "system",
+        content: systemPrompt,
+    },
+    ...cleanHistory,
+    {
+        role: "user",
+        content: finalUserMessage,
+    },
+];
         /*
         |--------------------------------------------------------------------------
         | GROQ
