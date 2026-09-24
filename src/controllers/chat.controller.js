@@ -133,6 +133,13 @@ const isJorgeQuestion = (message) => {
     });
 };
 
+const isShortFollowUp = (message) => {
+    const text = normalizeText(message);
+    const words = text.split(" ");
+
+    return words.length <= 6;
+};
+
 
 /*
 |--------------------------------------------------------------------------
@@ -207,7 +214,16 @@ if (localResponse) {
 
 const cleanHistory = sanitizeHistory(history);
 
-const aboutJorge = isJorgeQuestion(userMessage);
+const lastUserMessage = [...cleanHistory]
+    .reverse()
+    .find((item) => item.role === "user")?.content || "";
+
+const aboutJorge =
+    isJorgeQuestion(userMessage) ||
+    (
+        isShortFollowUp(userMessage) &&
+        isJorgeQuestion(lastUserMessage)
+    );
         
         /*
         |--------------------------------------------------------------------------
