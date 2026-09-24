@@ -199,21 +199,14 @@ if (localResponse) {
         }
 
         /*
-        |--------------------------------------------------------------------------
-        | DETECTAR CONTEXTO
-        |--------------------------------------------------------------------------
-        */
+|--------------------------------------------------------------------------
+| DETECTAR CONTEXTO
+|--------------------------------------------------------------------------
+*/
 
-        const cleanHistory = sanitizeHistory(history);
+const cleanHistory = sanitizeHistory(history);
 
-const previousUserMessages = cleanHistory
-    .filter((item) => item.role === "user")
-    .map((item) => item.content)
-    .join(" ");
-
-const aboutJorge =
-    isJorgeQuestion(userMessage) ||
-    isJorgeQuestion(previousUserMessages);
+const aboutJorge = isJorgeQuestion(userMessage);
         
         /*
         |--------------------------------------------------------------------------
