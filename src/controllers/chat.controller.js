@@ -232,18 +232,16 @@ const aboutJorge =
         */
 
         const messages = [
-    {
-        role: "system",
-        content: systemPrompt,
-    },
-
-    ...(aboutJorge ? [] : cleanHistory),
-
-    {
-        role: "user",
-        content: userMessage,
-    },
-];
+            {
+                role: "system",
+                content: systemPrompt,
+            },
+            ...cleanHistory,
+            {
+                role: "user",
+                content: userMessage,
+            },
+        ];
 
         /*
         |--------------------------------------------------------------------------
