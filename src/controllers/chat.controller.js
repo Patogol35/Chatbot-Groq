@@ -177,20 +177,27 @@ export const sendMessage = async (req, res) => {
         }
 
         const userMessage = message.trim();
+
+        /*
+        |--------------------------------------------------------------------------
+        | RESPUESTAS LOCALES
+        |--------------------------------------------------------------------------
+        */
+
         const localResponse = getLocalResponse(userMessage);
 
-if (localResponse) {
-    return res.json({
-        response: localResponse,
-        usage: {
-            promptTokens: 0,
-            completionTokens: 0,
-            totalTokens: 0,
-            estimatedCost: 0,
-        },
-        source: "local",
-    });
-}
+        if (localResponse) {
+            return res.json({
+                response: localResponse,
+                usage: {
+                    promptTokens: 0,
+                    completionTokens: 0,
+                    totalTokens: 0,
+                    estimatedCost: 0,
+                },
+                source: "local",
+            });
+        }
 
         if (userMessage.length > MAX_MESSAGE_LENGTH) {
             return res.status(400).json({
@@ -200,24 +207,208 @@ if (localResponse) {
 
         /*
         |--------------------------------------------------------------------------
-        | DETECTAR CONTEXTO
+        | HISTORIAL
         |--------------------------------------------------------------------------
         */
 
         const cleanHistory = sanitizeHistory(history);
 
-const previousUserMessages = cleanHistory
-    .filter((item) => item.role === "user")
-    .map((item) => item.content)
-    .join(" ");
+        const previousUserMessages = cleanHistory
+            .filter((item) => item.role === "user")
+            .map((item) => item.content)
+            .join(" ");
 
-const aboutJorge =
-    isJorgeQuestion(userMessage) ||
-    isJorgeQuestion(previousUserMessages);
-        
+        const aboutJorge =
+            isJorgeQuestion(userMessage) ||
+            isJorgeQuestion(previousUserMessages);
+
         /*
         |--------------------------------------------------------------------------
-        | ELEGIR PROMPT
+        | STACK REAL DE JORGE
+        |--------------------------------------------------------------------------
+        */
+
+        const jorgeStack = [
+            "React",
+            "JavaScript",
+            "Django",
+            "Java",
+            "PostgreSQL",
+            "MySQL",
+            "Render",
+            "Vercel",
+            "VirtualBox",
+            "LibreOffice",
+            "Postman",
+        ];
+
+        /*
+        |--------------------------------------------------------------------------
+        | NORMALIZAR TECNOLOGÍAS
+        |--------------------------------------------------------------------------
+        */
+
+        const normalizeTechnology = (text) => {
+            return text
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[.#/+_-]/g, "")
+                .replace(/\s+/g, "")
+                .trim();
+        };
+
+        /*
+        |--------------------------------------------------------------------------
+        | IDENTIFICAR TECNOLOGÍAS MENCIONADAS
+        |--------------------------------------------------------------------------
+        */
+
+        if (aboutJorge) {
+            const extraction = await groq.chat.completions.create({
+                model: MODEL,
+                messages: [
+                    {
+                        role: "system",
+                        content: `
+Extrae únicamente los nombres de tecnologías, lenguajes,
+frameworks, bases de datos, herramientas o plataformas
+mencionados en el mensaje del usuario.
+
+Devuelve únicamente un JSON válido con este formato:
+
+{"technologies":["React","PHP"]}
+
+No respondas la pregunta.
+No determines si Jorge conoce la tecnología.
+No inventes tecnologías.
+Si no hay ninguna, devuelve:
+{"technologies":[]}
+                        `,
+                    },
+                    {
+                        role: "user",
+                        content: userMessage,
+                    },
+                ],
+                temperature: 0,
+                max_completion_tokens: 100,
+                reasoning_effort: "low",
+                stream: false,
+            });
+
+            const extractionText =
+                extraction.choices?.[0]?.message?.content?.trim() || "";
+
+            let detectedTechnologies = [];
+
+            try {
+                const jsonMatch = extractionText.match(/\{[\s\S]*\}/);
+
+                if (jsonMatch) {
+                    const parsed = JSON.parse(jsonMatch[0]);
+
+                    if (Array.isArray(parsed.technologies)) {
+                        detectedTechnologies = parsed.technologies
+                            .filter(
+                                (technology) =>
+                                    typeof technology === "string" &&
+                                    technology.trim()
+                            )
+                            .map((technology) => technology.trim());
+                    }
+                }
+            } catch {
+                detectedTechnologies = [];
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | COMPARAR CONTRA EL STACK REAL
+            |--------------------------------------------------------------------------
+            */
+
+            if (detectedTechnologies.length > 0) {
+                const knownTechnologies = detectedTechnologies.filter(
+                    (technology) => {
+                        const normalizedTechnology =
+                            normalizeTechnology(technology);
+
+                        return jorgeStack.some(
+                            (stackTechnology) =>
+                                normalizeTechnology(stackTechnology) ===
+                                normalizedTechnology
+                        );
+                    }
+                );
+
+                const unknownTechnologies = detectedTechnologies.filter(
+                    (technology) => {
+                        const normalizedTechnology =
+                            normalizeTechnology(technology);
+
+                        return !jorgeStack.some(
+                            (stackTechnology) =>
+                                normalizeTechnology(stackTechnology) ===
+                                normalizedTechnology
+                        );
+                    }
+                );
+
+                /*
+                |--------------------------------------------------------------------------
+                | RESPUESTA DETERMINISTA
+                |--------------------------------------------------------------------------
+                */
+
+                if (
+                    knownTechnologies.length > 0 ||
+                    unknownTechnologies.length > 0
+                ) {
+                    const knownText = knownTechnologies.join(", ");
+                    const unknownText = unknownTechnologies.join(", ");
+
+                    let response = "";
+
+                    if (knownTechnologies.length > 0) {
+                        response += `Sí, ${knownText} ${
+                            knownTechnologies.length === 1
+                                ? "forma"
+                                : "forman"
+                        } parte de las tecnologías registradas de Jorge.`;
+                    }
+
+                    if (unknownTechnologies.length > 0) {
+                        if (response) {
+                            response += " ";
+                        }
+
+                        response += `${unknownText} no figura entre las tecnologías registradas de Jorge.`;
+                    }
+
+                    return res.json({
+                        response,
+                        usage: {
+                            promptTokens:
+                                extraction.usage?.prompt_tokens || 0,
+                            completionTokens:
+                                extraction.usage?.completion_tokens || 0,
+                            totalTokens:
+                                extraction.usage?.total_tokens || 0,
+                            estimatedCost:
+                                ((extraction.usage?.total_tokens || 0) /
+                                    1000) *
+                                COST_PER_1K_TOKENS,
+                        },
+                        source: "technology-validator",
+                    });
+                }
+            }
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | PREGUNTAS NORMALES
         |--------------------------------------------------------------------------
         */
 
@@ -225,29 +416,28 @@ const aboutJorge =
             ? JORGE_PROMPT
             : GENERAL_PROMPT;
 
-        /*
-        |--------------------------------------------------------------------------
-        | MENSAJES PARA GROQ
-        |--------------------------------------------------------------------------
-        */
-
-        const messages = [
-            {
-                role: "system",
-                content: systemPrompt,
-            },
-            ...cleanHistory,
-            {
-                role: "user",
-                content: userMessage,
-            },
-        ];
-
-        /*
-        |--------------------------------------------------------------------------
-        | GROQ
-        |--------------------------------------------------------------------------
-        */
+        const messages = aboutJorge
+            ? [
+                  {
+                      role: "system",
+                      content: systemPrompt,
+                  },
+                  {
+                      role: "user",
+                      content: userMessage,
+                  },
+              ]
+            : [
+                  {
+                      role: "system",
+                      content: systemPrompt,
+                  },
+                  ...cleanHistory,
+                  {
+                      role: "user",
+                      content: userMessage,
+                  },
+              ];
 
         const completion = await groq.chat.completions.create({
             model: MODEL,
@@ -258,12 +448,6 @@ const aboutJorge =
             stream: false,
         });
 
-        /*
-        |--------------------------------------------------------------------------
-        | USO DE TOKENS
-        |--------------------------------------------------------------------------
-        */
-
         const usage = completion.usage || {};
 
         const promptTokens = usage.prompt_tokens || 0;
@@ -272,12 +456,6 @@ const aboutJorge =
 
         const estimatedCost =
             (totalTokens / 1000) * COST_PER_1K_TOKENS;
-
-        /*
-        |--------------------------------------------------------------------------
-        | RESPUESTA
-        |--------------------------------------------------------------------------
-        */
 
         const response =
             completion.choices?.[0]?.message?.content?.trim();
@@ -291,12 +469,6 @@ const aboutJorge =
             .replace(/\*/g, "")
             .trim();
 
-        /*
-        |--------------------------------------------------------------------------
-        | LOGS
-        |--------------------------------------------------------------------------
-        */
-
         console.log("🤖 Sasha respondió");
         console.log("🧠 Modelo:", MODEL);
         console.log(
@@ -308,12 +480,6 @@ const aboutJorge =
         console.log("🔢 Total:", totalTokens);
         console.log("💰 Costo: $", estimatedCost.toFixed(6));
 
-        /*
-        |--------------------------------------------------------------------------
-        | RESPUESTA API
-        |--------------------------------------------------------------------------
-        */
-
         return res.json({
             response: cleanResponse,
             usage: {
@@ -323,7 +489,6 @@ const aboutJorge =
                 estimatedCost,
             },
         });
-
     } catch (error) {
         console.error("❌ ERROR GROQ:", error);
 
