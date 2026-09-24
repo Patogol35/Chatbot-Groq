@@ -4,7 +4,7 @@ const groq = new Groq({
     apiKey: process.env.GROQ_API_KEY,
 });
 
-const MODEL = "openai/gpt-oss-20b";
+const MODEL = "openai/gpt-oss-120b";
 
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_HISTORY_MESSAGES = 4;
@@ -61,7 +61,6 @@ Eres Sasha, asistente del portfolio de Jorge.
 - Una tecnología es válida solo si aparece literalmente en JORGE_INFO.
 - En preguntas sobre proyectos, usa solo las tecnologías/herramientas asociadas explícitamente a ese proyecto; no mezcles el STACK general.
 - Evita repetir información innecesaria.
-- Usa el historial para interpretar mensajes cortos como continuación de la conversación cuando corresponda.
 - Eres Sasha, asistente virtual del portfolio de Jorge.
 - Sobre notas, responde solo: Ingeniería en Sistemas 9/10 y Máster 8.68/10.
 
@@ -215,15 +214,6 @@ const previousUserMessages = cleanHistory
 const aboutJorge =
     isJorgeQuestion(userMessage) ||
     isJorgeQuestion(previousUserMessages);
-
-        const lastUserMessage = cleanHistory
-    .filter((item) => item.role === "user")
-    .at(-1);
-
-const isFollowUp =
-    lastUserMessage &&
-    !isJorgeQuestion(userMessage) &&
-    aboutJorge;
         
         /*
         |--------------------------------------------------------------------------
@@ -241,31 +231,18 @@ const isFollowUp =
         |--------------------------------------------------------------------------
         */
 
-        /*
-|--------------------------------------------------------------------------
-| MENSAJES PARA GROQ
-|--------------------------------------------------------------------------
-*/
+        const messages = [
+            {
+                role: "system",
+                content: systemPrompt,
+            },
+            ...cleanHistory,
+            {
+                role: "user",
+                content: userMessage,
+            },
+        ];
 
-const finalUserMessage = isFollowUp
-    ? `La pregunta anterior del usuario fue: "${lastUserMessage.content}"
-
-El usuario ahora pregunta: "${userMessage}"
-
-Responde entendiendo que la pregunta actual continúa el contexto anterior.`
-    : userMessage;
-
-const messages = [
-    {
-        role: "system",
-        content: systemPrompt,
-    },
-    ...cleanHistory,
-    {
-        role: "user",
-        content: finalUserMessage,
-    },
-];
         /*
         |--------------------------------------------------------------------------
         | GROQ
