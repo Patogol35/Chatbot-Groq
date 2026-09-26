@@ -206,42 +206,27 @@ if (localResponse) {
 
         const cleanHistory = sanitizeHistory(history);
 
-const previousUserMessages = cleanHistory
-    .filter((item) => item.role === "user")
-    .map((item) => item.content)
-    .join(" ");
+const aboutJorge = isJorgeQuestion(userMessage);
 
-const aboutJorge =
-    isJorgeQuestion(userMessage) ||
-    isJorgeQuestion(previousUserMessages);
-        
-        /*
-        |--------------------------------------------------------------------------
-        | ELEGIR PROMPT
-        |--------------------------------------------------------------------------
-        */
+const contextualHistory = cleanHistory.filter((item) => {
+    return isJorgeQuestion(item.content) === aboutJorge;
+});
 
-        const systemPrompt = aboutJorge
-            ? JORGE_PROMPT
-            : GENERAL_PROMPT;
+const systemPrompt = aboutJorge
+    ? JORGE_PROMPT
+    : GENERAL_PROMPT;
 
-        /*
-        |--------------------------------------------------------------------------
-        | MENSAJES PARA GROQ
-        |--------------------------------------------------------------------------
-        */
-
-        const messages = [
-            {
-                role: "system",
-                content: systemPrompt,
-            },
-            ...cleanHistory,
-            {
-                role: "user",
-                content: userMessage,
-            },
-        ];
+const messages = [
+    {
+        role: "system",
+        content: systemPrompt,
+    },
+    ...contextualHistory,
+    {
+        role: "user",
+        content: userMessage,
+    },
+];
 
         /*
         |--------------------------------------------------------------------------
