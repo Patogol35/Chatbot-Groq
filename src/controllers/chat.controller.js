@@ -293,9 +293,10 @@ const aboutJorge =
         }
 
         const cleanResponse = response
-            .replace(/\*\*/g, "")
-            .replace(/\*/g, "")
-            .trim();
+    .replace(/【[^】]*】/g, "")
+    .replace(/\*\*/g, "")
+    .replace(/\*/g, "")
+    .trim();
 
         /*
         |--------------------------------------------------------------------------
