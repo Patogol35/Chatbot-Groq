@@ -1,23 +1,15 @@
 import Groq from "groq-sdk";
 import { getLocalResponse } from "../utils/localResponses.js";
-
 const groq = new Groq({
     apiKey: process.env.GROQ_API_KEY,
 });
 
-/*
-|--------------------------------------------------------------------------
-| CONFIGURACIÓN
-|--------------------------------------------------------------------------
-*/
-
 const MODEL = "openai/gpt-oss-120b";
 
 const MAX_MESSAGE_LENGTH = 1000;
-const MAX_HISTORY_MESSAGES = 2;
+const MAX_HISTORY_MESSAGES = 4;
 const MAX_COMPLETION_TOKENS = 180;
 const COST_PER_1K_TOKENS = 0.0002;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +19,7 @@ const COST_PER_1K_TOKENS = 0.0002;
 
 const JORGE_INFO = `
 Jorge Patricio Santamaría Cherrez.
-Ingeniería en Sistemas, Universidad Indoamérica, Ecuador: 9/10.
-Máster en Ingeniería de Software, UNIR, España: 8.68/10.
+Estudios: Ingeniería en Sistemas (Universidad Indoamérica, Ecuador, 9/10); Máster en Ingeniería de Software (UNIR, España, 8.68/10).
 Certificaciones: MCP y Claude API (Anthropic, 2026); Fundamentals of AI (IBM, 2025); Linux (Udemy, 2024); AZ-900 (UNIR, 2023).
 Stack: React, JavaScript, Django, Java, PostgreSQL, MySQL, Render, Vercel, VirtualBox, LibreOffice, Postman.
 Proyectos: Quiz Ecuador (React); App del clima (React); Chatbot (Node.js, Express, Groq); Ajedrez (React, Stockfish); E-commerce (React, Django, PostgreSQL).
@@ -39,21 +30,19 @@ Proyectos: Quiz Ecuador (React); App del clima (React); Chatbot (Node.js, Expres
 |--------------------------------------------------------------------------
 | PROMPT GENERAL
 |--------------------------------------------------------------------------
-|
-| MUY CORTO:
-| Este prompt se utiliza para preguntas generales.
-| No incluimos JORGE_INFO aquí.
-|--------------------------------------------------------------------------
 */
 
 const GENERAL_PROMPT = `
 Eres Sasha, asistente del portfolio de Jorge.
 
-Responde en el idioma del usuario, de forma clara y directa, normalmente en 1-3 frases.
-No inventes información.
-Para información actual, reciente o que pueda haber cambiado, utiliza la búsqueda web.
-Solo menciona a Jorge si la pregunta trata sobre él.
-Si preguntan quién eres, explica brevemente que eres Sasha.
+- Responde claro y directo, normalmente en 1-3 frases.
+- Usa aproximadamente 25-70 palabras.
+- Responde solo en el idioma del último mensaje del usuario.
+- Puedes responder preguntas generales y de tecnología.
+- Si no tienes información verificable, dilo; no inventes.
+- Menciona a Jorge solo cuando la pregunta sea sobre él.
+- Solo explica que eres Sasha si preguntan directamente quién eres, quién es Sasha o qué eres.
+- Si preguntan por otra persona, responde sobre esa persona sin mencionar a Jorge ni a Sasha.
 `;
 
 
@@ -66,17 +55,19 @@ Si preguntan quién eres, explica brevemente que eres Sasha.
 const JORGE_PROMPT = `
 Eres Sasha, asistente del portfolio de Jorge.
 
-Responde en el idioma del usuario, de forma clara y directa, normalmente en 1-2 frases.
-Usa únicamente los datos proporcionados sobre Jorge.
-No inventes datos.
-No mezcles tecnologías entre proyectos.
-En preguntas sobre notas, responde solo con:
-Ingeniería en Sistemas 9/10 y Máster 8.68/10.
+- Responde directo, normalmente en 1-2 frases y en el idioma del último mensaje.
+- Usa aproximadamente 25-70 palabras.
+- Usa únicamente datos verificables de JORGE_INFO; no inventes.
+- Una tecnología es válida solo si aparece literalmente en JORGE_INFO.
+- En preguntas sobre proyectos, usa solo las tecnologías/herramientas asociadas explícitamente a ese proyecto; no mezcles el STACK general.
+- Evita repetir información innecesaria.
+- Responde preguntas generales con tus conocimientos; no las limites a JORGE_INFO. Mantén el contexto de Jorge solo cuando la pregunta continúe claramente ese tema.
+- Eres Sasha, asistente virtual del portfolio de Jorge.
+- Sobre notas, responde solo: Ingeniería en Sistemas 9/10 y Máster 8.68/10.
 
 DATOS:
 ${JORGE_INFO}
 `;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -90,7 +81,6 @@ const JORGE_KEYWORDS = [
     "santamaria",
     "santamaria cherrez",
     "jorge patricio",
-
     "sus estudios",
     "sus notas",
     "sus calificaciones",
@@ -104,11 +94,11 @@ const JORGE_KEYWORDS = [
     "su portfolio",
     "su portafolio",
     "su experiencia",
-
     "contactar a jorge",
     "contacto de jorge",
-
     "ecommerce",
+    
+
 ];
 
 
@@ -138,21 +128,15 @@ const normalizeText = (text) => {
 const isJorgeQuestion = (message) => {
     const text = normalizeText(message);
 
-    return JORGE_KEYWORDS.some((keyword) =>
-        text.includes(normalizeText(keyword))
-    );
+    return JORGE_KEYWORDS.some((keyword) => {
+        return text.includes(normalizeText(keyword));
+    });
 };
 
 
 /*
 |--------------------------------------------------------------------------
 | LIMPIAR HISTORIAL
-|--------------------------------------------------------------------------
-|
-| Solo conservamos los últimos 2 mensajes.
-|
-| Esto reduce bastante el prompt sin eliminar completamente
-| la capacidad de mantener contexto.
 |--------------------------------------------------------------------------
 */
 
@@ -179,55 +163,6 @@ const sanitizeHistory = (history) => {
 
 /*
 |--------------------------------------------------------------------------
-| DECIDIR SI REALMENTE NECESITAMOS HISTORIAL
-|--------------------------------------------------------------------------
-|
-| Si la pregunta parece independiente, no enviamos historial.
-|
-| Ejemplo:
-|
-| "¿Quién ganó el Royal Rumble 2026?"
-|
-| No necesita conocer la conversación anterior.
-|--------------------------------------------------------------------------
-*/
-
-const needsHistory = (message) => {
-    const text = normalizeText(message);
-
-    const contextWords = [
-        "ese",
-        "esa",
-        "eso",
-        "ese proyecto",
-        "esa tecnologia",
-        "esa certificacion",
-        "el anterior",
-        "la anterior",
-        "lo anterior",
-        "tambien",
-        "también",
-        "y que",
-        "y cual",
-        "y cuál",
-        "y como",
-        "y cómo",
-        "que mas",
-        "qué más",
-        "cuentame mas",
-        "cuéntame más",
-        "explica mas",
-        "explica más",
-    ];
-
-    return contextWords.some((word) =>
-        text.includes(normalizeText(word))
-    );
-};
-
-
-/*
-|--------------------------------------------------------------------------
 | ENVIAR MENSAJE
 |--------------------------------------------------------------------------
 */
@@ -236,12 +171,6 @@ export const sendMessage = async (req, res) => {
     try {
         const { message, history = [] } = req.body;
 
-        /*
-        |--------------------------------------------------------------------------
-        | VALIDACIÓN
-        |--------------------------------------------------------------------------
-        */
-
         if (typeof message !== "string" || !message.trim()) {
             return res.status(400).json({
                 error: "El mensaje es obligatorio.",
@@ -249,6 +178,20 @@ export const sendMessage = async (req, res) => {
         }
 
         const userMessage = message.trim();
+        const localResponse = getLocalResponse(userMessage);
+
+if (localResponse) {
+    return res.json({
+        response: localResponse,
+        usage: {
+            promptTokens: 0,
+            completionTokens: 0,
+            totalTokens: 0,
+            estimatedCost: 0,
+        },
+        source: "local",
+    });
+}
 
         if (userMessage.length > MAX_MESSAGE_LENGTH) {
             return res.status(400).json({
@@ -256,79 +199,23 @@ export const sendMessage = async (req, res) => {
             });
         }
 
-
         /*
         |--------------------------------------------------------------------------
-        | RESPUESTAS LOCALES
-        |--------------------------------------------------------------------------
-        |
-        | Este es el ahorro máximo:
-        |
-        | Si localResponses.js conoce la respuesta,
-        | NO llamamos a Groq.
-        |--------------------------------------------------------------------------
-        */
-
-        const localResponse = getLocalResponse(userMessage);
-
-        if (localResponse) {
-            console.log("⚡ Respuesta local");
-
-            return res.json({
-                response: localResponse,
-                usage: {
-                    promptTokens: 0,
-                    completionTokens: 0,
-                    totalTokens: 0,
-                    estimatedCost: 0,
-                },
-                source: "local",
-            });
-        }
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | HISTORIAL LIMPIO
+        | DETECTAR CONTEXTO
         |--------------------------------------------------------------------------
         */
 
         const cleanHistory = sanitizeHistory(history);
 
+const previousUserMessages = cleanHistory
+    .filter((item) => item.role === "user")
+    .map((item) => item.content)
+    .join(" ");
 
-        /*
-        |--------------------------------------------------------------------------
-        | DETECTAR SI ES SOBRE JORGE
-        |--------------------------------------------------------------------------
-        */
-
-        const currentQuestionIsAboutJorge =
-            isJorgeQuestion(userMessage);
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | CONTEXTO ANTERIOR
-        |--------------------------------------------------------------------------
-        |
-        | Solo utilizamos historial para detectar continuidad.
-        |
-        | No mandamos automáticamente todo el historial a Groq.
-        |--------------------------------------------------------------------------
-        */
-
-        let aboutJorge = currentQuestionIsAboutJorge;
-
-        if (!aboutJorge && needsHistory(userMessage)) {
-            const previousUserMessages = cleanHistory
-                .filter((item) => item.role === "user")
-                .map((item) => item.content)
-                .join(" ");
-
-            aboutJorge = isJorgeQuestion(previousUserMessages);
-        }
-
-
+const aboutJorge =
+    isJorgeQuestion(userMessage) ||
+    isJorgeQuestion(previousUserMessages);
+        
         /*
         |--------------------------------------------------------------------------
         | ELEGIR PROMPT
@@ -338,23 +225,6 @@ export const sendMessage = async (req, res) => {
         const systemPrompt = aboutJorge
             ? JORGE_PROMPT
             : GENERAL_PROMPT;
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | DECIDIR CUÁNTO HISTORIAL ENVIAR
-        |--------------------------------------------------------------------------
-        |
-        | Solo mandamos historial si la pregunta depende del contexto anterior.
-        |
-        | Una pregunta independiente va prácticamente sin contexto.
-        |--------------------------------------------------------------------------
-        */
-
-        const historyToSend = needsHistory(userMessage)
-            ? cleanHistory
-            : [];
-
 
         /*
         |--------------------------------------------------------------------------
@@ -367,42 +237,27 @@ export const sendMessage = async (req, res) => {
                 role: "system",
                 content: systemPrompt,
             },
-
-            ...historyToSend,
-
+            ...cleanHistory,
             {
                 role: "user",
                 content: userMessage,
             },
         ];
 
-
         /*
         |--------------------------------------------------------------------------
-        | GROQ + BÚSQUEDA WEB
+        | GROQ
         |--------------------------------------------------------------------------
         */
 
         const completion = await groq.chat.completions.create({
             model: MODEL,
-
             messages,
-
             temperature: 0.3,
-
             max_completion_tokens: MAX_COMPLETION_TOKENS,
-
             reasoning_effort: "low",
-
             stream: false,
-
-            tools: [
-                {
-                    type: "browser_search",
-                },
-            ],
         });
-
 
         /*
         |--------------------------------------------------------------------------
@@ -412,18 +267,12 @@ export const sendMessage = async (req, res) => {
 
         const usage = completion.usage || {};
 
-        const promptTokens =
-            usage.prompt_tokens || 0;
-
-        const completionTokens =
-            usage.completion_tokens || 0;
-
-        const totalTokens =
-            usage.total_tokens || 0;
+        const promptTokens = usage.prompt_tokens || 0;
+        const completionTokens = usage.completion_tokens || 0;
+        const totalTokens = usage.total_tokens || 0;
 
         const estimatedCost =
             (totalTokens / 1000) * COST_PER_1K_TOKENS;
-
 
         /*
         |--------------------------------------------------------------------------
@@ -438,19 +287,10 @@ export const sendMessage = async (req, res) => {
             throw new Error("Groq no devolvió contenido.");
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | LIMPIAR RESPUESTA
-        |--------------------------------------------------------------------------
-        */
-
         const cleanResponse = response
-            .replace(/【[^】]*】/g, "")
             .replace(/\*\*/g, "")
             .replace(/\*/g, "")
             .trim();
-
 
         /*
         |--------------------------------------------------------------------------
@@ -460,25 +300,14 @@ export const sendMessage = async (req, res) => {
 
         console.log("🤖 Sasha respondió");
         console.log("🧠 Modelo:", MODEL);
-
         console.log(
             "👤 Contexto Jorge:",
             aboutJorge ? "SÍ" : "NO"
         );
-
-        console.log(
-            "💬 Historial enviado:",
-            historyToSend.length
-        );
-
         console.log("📊 Prompt:", promptTokens);
         console.log("⬅️ Completion:", completionTokens);
         console.log("🔢 Total:", totalTokens);
-        console.log(
-            "💰 Costo: $",
-            estimatedCost.toFixed(6)
-        );
-
+        console.log("💰 Costo: $", estimatedCost.toFixed(6));
 
         /*
         |--------------------------------------------------------------------------
@@ -488,7 +317,6 @@ export const sendMessage = async (req, res) => {
 
         return res.json({
             response: cleanResponse,
-
             usage: {
                 promptTokens,
                 completionTokens,
@@ -498,14 +326,7 @@ export const sendMessage = async (req, res) => {
         });
 
     } catch (error) {
-
         console.error("❌ ERROR GROQ:", error);
-
-        /*
-        |--------------------------------------------------------------------------
-        | RATE LIMIT
-        |--------------------------------------------------------------------------
-        */
 
         if (error?.status === 429) {
             return res.status(429).json({
@@ -514,13 +335,6 @@ export const sendMessage = async (req, res) => {
             });
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | API KEY
-        |--------------------------------------------------------------------------
-        */
-
         if (error?.status === 401) {
             return res.status(500).json({
                 error:
@@ -528,18 +342,9 @@ export const sendMessage = async (req, res) => {
             });
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | ERROR GENERAL
-        |--------------------------------------------------------------------------
-        */
-
         return res.status(500).json({
             error:
                 "No fue posible obtener una respuesta de Sasha. Inténtalo nuevamente.",
         });
     }
 };
-
- 
