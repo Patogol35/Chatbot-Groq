@@ -251,13 +251,18 @@ const aboutJorge =
         */
 
         const completion = await groq.chat.completions.create({
-            model: MODEL,
-            messages,
-            temperature: 0.3,
-            max_completion_tokens: MAX_COMPLETION_TOKENS,
-            reasoning_effort: "low",
-            stream: false,
-        });
+    model: MODEL,
+    messages,
+    temperature: 0.3,
+    max_completion_tokens: MAX_COMPLETION_TOKENS,
+    reasoning_effort: "low",
+    stream: false,
+    tools: [
+        {
+            type: "browser_search",
+        },
+    ],
+});
 
         /*
         |--------------------------------------------------------------------------
