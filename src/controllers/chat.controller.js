@@ -206,7 +206,14 @@ if (localResponse) {
 
         const cleanHistory = sanitizeHistory(history);
 
-const aboutJorge = isJorgeQuestion(userMessage);
+const previousUserMessages = cleanHistory
+    .filter((item) => item.role === "user")
+    .map((item) => item.content)
+    .join(" ");
+
+const aboutJorge =
+    isJorgeQuestion(userMessage) ||
+    isJorgeQuestion(previousUserMessages);
         
         /*
         |--------------------------------------------------------------------------
