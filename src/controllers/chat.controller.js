@@ -251,18 +251,13 @@ const aboutJorge =
         */
 
         const completion = await groq.chat.completions.create({
-    model: MODEL,
-    messages,
-    temperature: 0.3,
-    max_completion_tokens: MAX_COMPLETION_TOKENS,
-    reasoning_effort: "low",
-    stream: false,
-    tools: [
-        {
-            type: "browser_search",
-        },
-    ],
-});
+            model: MODEL,
+            messages,
+            temperature: 0.3,
+            max_completion_tokens: MAX_COMPLETION_TOKENS,
+            reasoning_effort: "low",
+            stream: false,
+        });
 
         /*
         |--------------------------------------------------------------------------
@@ -293,10 +288,9 @@ const aboutJorge =
         }
 
         const cleanResponse = response
-    .replace(/【[^】]*】/g, "")
-    .replace(/\*\*/g, "")
-    .replace(/\*/g, "")
-    .trim();
+            .replace(/\*\*/g, "")
+            .replace(/\*/g, "")
+            .trim();
 
         /*
         |--------------------------------------------------------------------------
