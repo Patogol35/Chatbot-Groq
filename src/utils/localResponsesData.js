@@ -1024,6 +1024,7 @@ responses: [
     category: "sasha_creador",
     keywords: [
         "quien te creo",
+        "Quien es tu creador",
         "quien te creo a ti",
         "quien te hizo",
         "quien te programo",
