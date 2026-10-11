@@ -179,7 +179,7 @@ keywords: [
     "estudio una maestria",
     "tiene maestria",
     "tiene un master",
-    "master de jorge",
+    
 ],
     responses: [
         "Jorge realizó un Máster en Ingeniería de Software y Sistemas Informáticos en la Universidad Internacional de La Rioja (UNIR), España.",
