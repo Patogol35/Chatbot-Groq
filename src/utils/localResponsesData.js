@@ -278,6 +278,7 @@ keywords: [
         "nota de su posgrado",
         "nota del posgrado",
         "nota del master",
+        "notas del master",
         
     ],
     responses: [
