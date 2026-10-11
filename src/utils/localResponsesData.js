@@ -152,9 +152,7 @@ keywords: [
 {
     category: "formacion",
     keywords: [
-    "master",
-    "maestria",
-    "posgrado",
+
 
     "que master tiene",
     "que maestria tiene",
