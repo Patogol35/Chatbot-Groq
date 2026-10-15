@@ -130,13 +130,6 @@ PORT=3001
 
 ```
 
-Ejecuta el servidor en modo desarrollo:
-
-```bash
-npm run dev
-
-```
-
 Para ejecutar el servidor:
 
 ```bash
