@@ -20,7 +20,7 @@ El backend utiliza la API de Groq para generar las respuestas mediante un modelo
 
 - Groq SDK
 
-- OpenAI GPT-OSS 20B
+- OpenAI GPT-OSS 120B
 
 - CORS
 
@@ -130,7 +130,9 @@ PORT=3001
 
 ```
 
-Para ejecutar el servidor:
+Importante: no publiques tu archivo .env ni tu clave de API en GitHub.
+
+Ejecutar el servidor (para desarrollo):
 
 ```bash
 
