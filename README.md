@@ -110,7 +110,7 @@ PORT=3001
 
 Importante: no publiques tu archivo .env ni tu clave de API en GitHub.
 
-Ejecutar el servidor (para desarrollo):
+5. Ejecutar el servidor (para desarrollo):
 
 ```bash
 
