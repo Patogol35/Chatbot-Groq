@@ -2,9 +2,9 @@
 
 Sasha es un chatbot de inteligencia artificial desarrollado para el portfolio personal de Jorge Patricio Santamaría Cherrez.
 
-Está diseñado para responder preguntas sobre Jorge, sus estudios, certificaciones, tecnologías y proyectos, además de proporcionar respuestas sobre programación y tecnología en general.
+Está diseñado para responder preguntas sobre el perfil profesional de Jorge, incluyendo sus estudios, certificaciones, tecnologías y proyectos, además de responder preguntas generales sobre diversos temas.
 
-El backend utiliza la API de Groq para generar las respuestas mediante un modelo de lenguaje.
+El backend está desarrollado con Node.js y Express, e integra la API de Groq para generar respuestas mediante un modelo de lenguaje. También incorpora un sistema de respuestas locales para atender determinadas consultas sin recurrir al modelo de inteligencia artificial.
 
 ---
 
