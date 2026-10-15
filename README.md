@@ -147,19 +147,14 @@ Ejemplo de respuesta:
 
 🖥 Funcionamiento
 
-- El usuario escribe un mensaje en el chatbot.
-
-- El frontend envía la solicitud al endpoint /api/chat.
-
-- El backend valida y limpia el mensaje recibido.
-
-- Se procesa el historial de conversación.
-
-- Se envía la información al modelo de inteligencia artificial mediante Groq.
-
-- Sasha genera una respuesta utilizando el contexto y las instrucciones configuradas.
-
-- El backend devuelve la respuesta al frontend.
+1. El usuario escribe un mensaje en el chatbot.
+2. El frontend envía la solicitud al endpoint "/api/chat".
+3. El backend valida el mensaje recibido y comprueba su longitud.
+4. Se procesan y validan los mensajes del historial de conversación.
+5. El sistema comprueba si existe una respuesta local configurada para el mensaje.
+6. Si no existe una respuesta local, se determina el contexto y se envía la solicitud al modelo de inteligencia artificial mediante Groq.
+7. Sasha genera una respuesta utilizando las instrucciones y el contexto disponibles.
+8. El backend devuelve la respuesta al frontend y registra el uso de tokens cuando corresponde.
 
 ---
 
