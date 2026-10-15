@@ -64,25 +64,18 @@ Sasha cuenta con un prompt de sistema diseñado para:
 
 ---
 
-🔐 Seguridad y validaciones
+🔒 Seguridad y validaciones
 
-El backend incorpora diferentes medidas para controlar las solicitudes:
+El backend incorpora diferentes medidas para controlar las solicitudes y proteger la aplicación:
 
-- Validación de mensajes vacíos
-
-- Límite máximo de 1500 caracteres por mensaje
-
-- Límite de 12 mensajes en el historial
-
-- Validación y limpieza del historial recibido
-
-- Protección de la API Key mediante variables de entorno
-
-- Protección de las instrucciones internas del chatbot
-
-- No exposición de información privada
-
-- Manejo de errores por límite de solicitudes
+- Validación de mensajes vacíos.
+- Límite máximo de 1000 caracteres por mensaje.
+- Límite de 4 mensajes en el historial de conversación.
+- Validación y limpieza del historial recibido.
+- Protección de la API Key mediante variables de entorno.
+- Instrucciones internas del chatbot gestionadas desde el backend.
+- Restricción de la información profesional a los datos disponibles y verificados.
+- Manejo de errores y respuestas ante límites de solicitudes de la API.
 
 ---
 
