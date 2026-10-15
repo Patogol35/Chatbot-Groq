@@ -128,20 +128,51 @@ http://localhost:3001
 
 Endpoint principal:
 
-POST /api/chat
+"POST /api/chat"
 
-Ejemplo de solicitud:
+Ejemplo 1: Pregunta sobre Jorge
+
+Solicitud:
+
 {
   "message": "¿Qué tecnologías utiliza Jorge?",
   "history": []
 }
 
-Ejemplo de respuesta:
+Respuesta:
 
 {
-  "response": "Jorge trabaja con tecnologías como React, JavaScript, Python, Django, Java, PostgreSQL y MySQL."
-  
+  "response": "Jorge trabaja con tecnologías como React, JavaScript, Django, Java, PostgreSQL y MySQL.",
+  "usage": {
+    "promptTokens": 250,
+    "completionTokens": 45,
+    "totalTokens": 295,
+    "estimatedCost": 0.000059
+  }
 }
+
+Ejemplo 2: Pregunta general
+
+Solicitud:
+
+{
+  "message": "¿Qué es la inteligencia artificial?",
+  "history": []
+}
+
+Respuesta:
+
+{
+  "response": "La inteligencia artificial es una rama de la informática que permite a las máquinas realizar tareas que normalmente requieren capacidades humanas, como aprender, razonar y comprender el lenguaje.",
+  "usage": {
+    "promptTokens": 220,
+    "completionTokens": 42,
+    "totalTokens": 262,
+    "estimatedCost": 0.0000524
+  }
+}
+
+Nota: los valores de tokens y costo son ilustrativos. "promptTokens" representa los tokens de entrada, "completionTokens" los de salida, "totalTokens" el total utilizado y "estimatedCost" el costo estimado según la tarifa configurada en el backend. Las respuestas locales devuelven estos valores en cero.
 
 ---
 
