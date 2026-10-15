@@ -191,7 +191,7 @@ Nota: los valores de tokens y costo son ilustrativos. "promptTokens" representa 
 
 🌐 Despliegue
 
-El backend puede desplegarse fácilmente en servicios como Render.
+El backend puede desplegarse en plataformas como Render, que permite publicar el servicio y obtener una URL accesible desde internet.
 
 Configuración en Render:
 
@@ -213,14 +213,17 @@ npm start
 
 🔑 Variable de entorno requerida
 
-En Render, agrega la siguiente variable de entorno:
+Configura la siguiente variable de entorno en el panel de Render:
 
 - Key: GROQ_API_KEY
 
 - Value: Tu clave de API de Groq
 
+La clave de API de Groq es necesaria para generar respuestas mediante inteligencia artificial.
+
 ---
 
 👨‍💻 Autor
 Jorge Patricio Santamaría Cherrez
+
 Máster en Ingeniería de Software y Sistemas Informáticos
