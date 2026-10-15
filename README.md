@@ -50,25 +50,17 @@ El backend utiliza la API de Groq para generar las respuestas mediante un modelo
 
 🧠 Inteligencia Artificial
 
-El chatbot utiliza Groq como proveedor de inferencia y el modelo:
-
-- openai/gpt-oss-20b
+El chatbot utiliza Groq como proveedor de inferencia y el modelo "openai/gpt-oss-120b".
 
 Sasha cuenta con un prompt de sistema diseñado para:
 
-- Mantener una personalidad profesional y natural
-
-- Responder de forma clara y breve
-
-- Utilizar únicamente la información disponible sobre Jorge
-
-- Evitar inventar información profesional
-
-- Proteger información privada y credenciales
-
-- Mantener el contexto de la conversación
-
-- Responder preguntas generales 
+- Mantener una personalidad profesional y natural.
+- Responder de forma clara y breve.
+- Proporcionar información sobre Jorge y su portfolio.
+- Responder preguntas generales y consultas sobre tecnología.
+- Evitar inventar información profesional.
+- Proteger información privada y credenciales.
+- Mantener el contexto de la conversación.
 
 ---
 
