@@ -30,21 +30,14 @@ El backend utiliza la API de Groq para generar las respuestas mediante un modelo
 
 ✨ Funcionalidades
 
-- Chat interactivo con inteligencia artificial
-
-- Respuestas sobre el perfil profesional de Jorge
-
-- Respuestas generales 
-
-- Historial de conversación
-
-- Manejo de errores de la API
-
-- Protección de información privada
-
-- Respuestas optimizadas mediante un límite de tokens
-
-- API REST para comunicación con el frontend
+- Chat interactivo con inteligencia artificial.
+- Respuestas sobre el perfil profesional y los proyectos de Jorge.
+- Respuestas a preguntas generales y consultas sobre tecnología.
+- Gestión del historial de conversación para mantener el contexto.
+- Manejo de errores y límites de solicitudes de la API.
+- Medidas para proteger información privada y credenciales.
+- Optimización de respuestas mediante límites de tokens.
+- API REST para la comunicación entre el frontend y el backend.
 
 ---
 
