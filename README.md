@@ -108,7 +108,7 @@ PORT=3001
 
 ```
 
-Importante: Reemplaza tu_api_key_de_groq por tu clave de API obtenida en la plataforma de Groq. No compartas ni publiques tu archivo .env o tu clave de API en GitHub.
+Importante: Reemplaza tu_api_key por tu clave de API obtenida en la plataforma de Groq. No compartas ni publiques tu archivo .env o tu clave de API en GitHub.
 
 5. Ejecutar el servidor (para desarrollo):
 
